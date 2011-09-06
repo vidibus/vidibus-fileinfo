@@ -1,4 +1,4 @@
-# Vidibus::Fileinfo [![](http://travis-ci.org/vidibus/vidibus-fileinfo.png)](http://travis-ci.org/vidibus/vidibus-fileinfo) [![](http://stillmaintained.com/vidibus/vidibus-fileinfo.png)](http://stillmaintained.com/vidibus/vidibus-fileinfo)
+# Vidibus::Fileinfo [![](http://stillmaintained.com/vidibus/vidibus-fileinfo.png)](http://stillmaintained.com/vidibus/vidibus-fileinfo)
 
 Returns information like the width, height and bits about an image or video file.
 
