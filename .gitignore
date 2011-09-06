@@ -1,6 +1,7 @@
 pkg/*
+coverage/*
 Gemfile.lock
 *.gem
 .bundle
 rdoc
-coverage
+.rbenv-version

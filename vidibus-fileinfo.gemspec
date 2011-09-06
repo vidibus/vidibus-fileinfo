@@ -1,5 +1,7 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path("../lib/vidibus/fileinfo/version", __FILE__)
+$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
+
+require "vidibus/fileinfo/version"
 
 Gem::Specification.new do |s|
   s.name        = "vidibus-fileinfo"
@@ -9,23 +11,22 @@ Gem::Specification.new do |s|
   s.email       = "andre@vidibus.com"
   s.homepage    = "https://github.com/vidibus/vidibus-fileinfo"
   s.summary     = "Returns information about an image or video file."
-  s.description = "Gets width, height, bits and other figures."
+  s.description = "Returns information like the width, height and bits about an image or video file."
 
   s.required_rubygems_version = ">= 1.3.6"
-  s.rubyforge_project         = "vidibus-fileinfo"
 
   s.add_dependency "actionpack", "~> 3.0.4"
-  s.add_dependency "vidibus-core_extensions"
   s.add_dependency "open4"
   s.add_dependency "newbamboo-rvideo"
+  s.add_dependency "vidibus-core_extensions"
 
   s.add_development_dependency "bundler", ">= 1.0.0"
-  s.add_development_dependency "rake"
-  s.add_development_dependency "rspec", "~> 2.0.0.beta.20"
+  s.add_development_dependency "rspec", "~> 2"
   s.add_development_dependency "rr"
-  s.add_development_dependency "relevance-rcov"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "rcov"
+  s.add_development_dependency "rdoc"
 
-  s.files        = `git ls-files`.split("\n")
-  s.executables  = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
-  s.require_path = 'lib'
+  s.files = Dir.glob("{lib,app,config}/**/*") + %w[LICENSE README.md Rakefile]
+  s.require_path = "lib"
 end
