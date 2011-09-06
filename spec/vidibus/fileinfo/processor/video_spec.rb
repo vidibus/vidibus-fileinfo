@@ -4,8 +4,9 @@ describe Vidibus::Fileinfo::Processor::Video do
   let(:subject) {Vidibus::Fileinfo::Base.new(mp4_path)}
 
   describe "FORMATS" do
-    it "should include various image formats" do
-      Vidibus::Fileinfo::Processor::Video::FORMATS.should eql(%w[avi flv h261 h263 h264 ipod m4v mov mp4 mpeg mxf ogg])
+    it "should include various video formats" do
+      formats = %w[avi flv h261 h263 h264 ipod m4v mov mp4 mpeg mxf ogg]
+      Vidibus::Fileinfo::Processor::Video::FORMATS.should eq(formats)
     end
   end
 
@@ -15,33 +16,23 @@ describe Vidibus::Fileinfo::Processor::Video do
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::PathError)
     end
 
-    it "should call RVideo::Inspector.new" do
-      mock(RVideo::Inspector).new(:file => mp4_path) {OpenStruct.new(:width => "10", :height => "10", :duration => "10")}
-      subject.data
-    end
-
-    it "should raise an error if RVideo::Inspector returns nothing" do
-      stub(RVideo::Inspector).new(:file => mp4_path) {}
+    it "should raise an error if height is 0" do
+      stub(subject).height {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
-    it "should raise an error if RVideo::Inspector fails to extract height" do
-      stub(RVideo::Inspector).new(:file => mp4_path) {OpenStruct.new(:width => "10", :height => nil, :duration => "10")}
+    it "should raise an error if width is 0" do
+      stub(subject).width {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
-    it "should raise an error if RVideo::Inspector fails to extract width" do
-      stub(RVideo::Inspector).new(:file => mp4_path) {OpenStruct.new(:width => nil, :height => "10", :duration => "10")}
+    it "should raise an error if duration is 0" do
+      stub(subject).duration {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
-    it "should raise an error if RVideo::Inspector fails to extract duration" do
-      stub(RVideo::Inspector).new(:file => mp4_path) {OpenStruct.new(:width => "10", :height => "10", :duration => nil)}
-      expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
-    end
-
-    it "should return a hash of image attributes" do
-      subject.data.should eql({
+    it "should return a hash of correct video attributes" do
+      hash = {
         :video_codec => "mpeg4",
         :audio_codec => "aac",
         :audio_sample_rate => 48000,
@@ -51,7 +42,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         :duration => 1.92,
         :bitrate => 602,
         :size => 144631
-      })
+      }
+      subject.data.should eq(hash)
     end
   end
 end

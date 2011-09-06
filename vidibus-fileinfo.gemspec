@@ -16,8 +16,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
 
   s.add_dependency "actionpack", "~> 3.0.4"
-  s.add_dependency "open4"
-  s.add_dependency "newbamboo-rvideo"
+  s.add_dependency "posix-spawn"
   s.add_dependency "vidibus-core_extensions"
 
   s.add_development_dependency "bundler", ">= 1.0.0"
