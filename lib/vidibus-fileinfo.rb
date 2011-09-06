@@ -1,6 +1,5 @@
-require "vidibus-core_extensions"
-require "action_dispatch/http/mime_type.rb"
 require "rvideo"
+require "action_dispatch/http/mime_type"
+require "vidibus-core_extensions"
 
-$:.unshift(File.join(File.dirname(__FILE__), "vidibus"))
-require "fileinfo"
+require "vidibus/fileinfo"

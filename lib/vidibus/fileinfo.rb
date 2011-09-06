@@ -1,6 +1,6 @@
-require "fileinfo/base"
-require "fileinfo/processor/image"
-require "fileinfo/processor/video"
+require "vidibus/fileinfo/base"
+require "vidibus/fileinfo/processor/image"
+require "vidibus/fileinfo/processor/video"
 
 module Vidibus
   module Fileinfo
