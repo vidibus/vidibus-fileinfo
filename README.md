@@ -21,14 +21,14 @@ In a Rails environment, a good place would be your development.rb and production
 
 Example for development environment on OSX:
 
-```
+``` shell
 # Set path to ImageMagick and FFmpeg executables
 ENV["PATH"] = "#{ENV["PATH"]}:/opt/local/bin"
 ```
 
 Example for production environment on Debian:
 
-```
+``` shell
 # Set path to ImageMagick and FFmpeg executables
 ENV["PATH"] = "#{ENV["PATH"]}:/usr/bin/"
 ```
