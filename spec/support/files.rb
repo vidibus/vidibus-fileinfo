@@ -1,7 +1,7 @@
 FILES_DIR = File.join(File.dirname(__FILE__), "..", "files")
 
 def jpg_path
-  @jpg_path ||= File.join(FILES_DIR, "Jim-Marshall.jpg")
+  @jpg_path ||= File.join(FILES_DIR, "rotated-image.jpg")
 end
 
 def mp4_path

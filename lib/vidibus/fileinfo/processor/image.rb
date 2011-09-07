@@ -3,36 +3,49 @@ module Vidibus
     module Processor
       module Image
         FORMATS = %w[jpg jpeg png gif]
+        METADATA = %w[bit content_type height orientation quality size width]
 
-        # Extracts image data through ImageMagick.
-        def data
-          raise PathError unless @path
-          @data ||= begin
-            result = perform or raise DataError
-            values = result.to_s.split(" ")
-            raise DataError unless values.size > 5
-            dimensions = values[2].split('x').map {|d| d.to_i}
-            raise DataError unless dimensions.any?
-            {
-              :content_type => values[1].downcase,
-              :width => dimensions[0],
-              :height => dimensions[1],
-              :bit => values[4].to_i,
-              :size => File.size(@path)
-            }
-          end
+        def cmd
+          "identify -verbose #{@path}"
+        end
+
+        def output
+          :stdout
+        end
+
+        def valid?(metadata)
+          !(metadata[:width].zero? || metadata[:height].zero?)
         end
 
         protected
 
-        def perform
-          result = `#{command}`
-          raise DataError unless $? == 0
-          result
+        def bit
+          /^\s*Depth:\s(\w+)-bit/.match(@raw_metadata)[1].presence.to_i
         end
 
-        def command
-          "identify #{@path}"
+        def content_type
+          /^\s*Format:\s(\w+)/.match(@raw_metadata)[1].presence.downcase
+        end
+
+        def height
+          dimension[1]
+        end
+
+        def width
+          dimension[0]
+        end
+
+        def dimension
+          str = /^\s*Geometry: (\w+)/.match(@raw_metadata)[1].presence
+          str.split("x").map(&:to_i)
+        end
+
+        def orientation
+          /^\s*exif:Orientation:\s(\d+)/.match(@raw_metadata)[1].presence.to_i
+        end
+
+        def quality
+          /^\s*Quality: (\d+)/.match(@raw_metadata)[1].presence.to_i
         end
       end
     end
