@@ -56,7 +56,7 @@ module Vidibus
         # The video dimensions e.g. [600, 400]
         def dimensions
           str = /^.*Video:.*( \d+x\d+ ).*$/.match(@raw_metadata)[1].strip
-          /(\d+)x(\d+)/.match(str)[1..2].map(&:to_i)
+          str.split("x").map(&:to_i)
         end
 
         # The duration of the video in seconds.
