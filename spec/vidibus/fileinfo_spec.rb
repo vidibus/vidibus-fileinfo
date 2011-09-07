@@ -1,4 +1,5 @@
 require "spec_helper"
+require "ostruct"
 
 describe Vidibus::Fileinfo do
   let(:subject) {Vidibus::Fileinfo}
