@@ -31,8 +31,15 @@ describe Vidibus::Fileinfo::Processor::Image do
       stub(subject).width {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
+  end
 
-    it "should return a hash of correct image attributes" do
+  describe "#process_cmd" do
+    it "should return raw metadata from an image" do
+      subject.data.present?.should be_true
+    end
+  end
+
+    it "should return a hash of correct image metadata" do
       attr = {
         :content_type => "jpeg",
         :width => 200,
@@ -43,6 +50,5 @@ describe Vidibus::Fileinfo::Processor::Image do
         :size => 37958
       }
       subject.data.should eq(attr)
-    end
   end
 end

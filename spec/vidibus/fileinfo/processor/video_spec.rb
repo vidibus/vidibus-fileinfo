@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Vidibus::Fileinfo::Processor::Video do
   let(:subject) {Vidibus::Fileinfo::Base.new(mp4_path)}
+  let(:results) {load_fixture("video_results")}
 
   describe "FORMATS" do
     it "should include various video formats" do
@@ -18,45 +19,88 @@ describe Vidibus::Fileinfo::Processor::Video do
     end
   end
 
+  describe "#process_cmd" do
+    it "should return raw metadata from an video" do
+      subject.data.present?.should be_true
+    end
+  end
+
   describe "#data" do
     it "should require @path to be defined" do
       subject.instance_variable_set("@path", nil)
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::PathError)
     end
 
-    it "should raise DataError if height is 0" do
+    it %q(should raise DataError if "height" validation fails) do
       stub(subject).height {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
-    it "should raise DataError if width is 0" do
+    it %q(should raise DataError if "width" validation fails) do
       stub(subject).width {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
-    it "should raise DataError if duration is 0" do
+    it %q(should raise DataError if "duration" validation fails) do
       stub(subject).duration {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
-    it "should raise DataError if a metadata method raised an exception" do
-      stub(subject).dimension {nil}
-      expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
+    it "should parse metadata correctly (mpeg4)" do
+      stub(subject).process_cmd {results["mpeg4"]}
+      metadata = subject.data
+      metadata[:audio_codec].should       eq("aac")
+      metadata[:audio_sample_rate].should eq(48000)
+      metadata[:bitrate].should           eq(602)
+      metadata[:duration].should          eq(1.92)
+      metadata[:fps].should               eq(25.0)
+      metadata[:height].should            eq(405)
+      metadata[:video_codec].should       eq("mpeg4")
+      metadata[:width].should             eq(720)
     end
 
-    it "should return a hash of correct video attributes" do
-      attr = {
-        :video_codec => "mpeg4",
-        :audio_codec => "aac",
-        :audio_sample_rate => 48000,
-        :height => 405,
-        :width => 720,
-        :fps => 25.0,
-        :duration => 1.92,
-        :bitrate => 602,
-        :size => 144631
-      }
-      subject.data.should eq(attr)
+    it "should parse metadata correctly (h264 1)" do
+      stub(subject).process_cmd {results["h264_1"]}
+      metadata = subject.data
+      metadata[:audio_codec].should       eq("aac")
+      metadata[:audio_sample_rate].should eq(48000)
+      metadata[:bitrate].should           eq(1136)
+      metadata[:duration].should          eq(44.73)
+      metadata[:fps].should               eq(25.0)
+      metadata[:height].should            eq(406)
+      metadata[:video_codec].should       eq("h264 (High)")
+      metadata[:width].should             eq(720)
+    end
+
+    it "should parse metadata correctly (h264 2)" do
+      stub(subject).process_cmd {results["h264_2"]}
+      metadata = subject.data
+      metadata[:audio_codec].should       eq("aac")
+      metadata[:audio_sample_rate].should eq(44100)
+      metadata[:bitrate].should           eq(1098)
+      metadata[:duration].should          eq(1140047.76)
+      metadata[:fps].should               eq(24.93)
+      metadata[:height].should            eq(350)
+      metadata[:video_codec].should       eq("h264 (Main)")
+      metadata[:width].should             eq(620)
+    end
+
+    it "should parse metadata correctly (h264 3)" do
+      stub(subject).process_cmd {results["h264_3"]}
+      metadata = subject.data
+      metadata[:audio_codec].should       eq("aac")
+      metadata[:audio_sample_rate].should eq(44100)
+      metadata[:bitrate].should           eq(951)
+      metadata[:duration].should          eq(8160012.36)
+      metadata[:fps].should               eq(25.0)
+      metadata[:height].should            eq(350)
+      metadata[:video_codec].should       eq("h264 (Main)")
+      metadata[:width].should             eq(620)
+    end
+
+    it "should raise DataError when metadata are invalid" do
+      stub(subject).process_cmd {results["invalid_data"]}
+      expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
   end
 end

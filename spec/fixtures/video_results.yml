@@ -1,0 +1,127 @@
+mpeg4: |
+  ffmpeg version 0.8.2, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Sep  6 2011 11:29:00 with clang 2.1 (tags/Apple/clang-163.7.1)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8.2 --enable-shared --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid --cc=clang
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'spec/files/airplane.mp4':
+    Metadata:
+      major_brand     : isom
+      minor_version   : 512
+      compatible_brands: isomiso2mp41
+      creation_time   : 1970-01-01 00:00:00
+      encoder         : Lavf52.31.0
+    Duration: 00:00:01.92, start: 0.000000, bitrate: 602 kb/s
+      Stream #0.0(eng): Video: mpeg4, yuv420p, 720x405 [PAR 1:1 DAR 16:9], 984 kb/s, 25 fps, 25 tbr, 25 tbn, 25 tbc
+      Metadata:
+        creation_time   : 1970-01-01 00:00:00
+      Stream #0.1(eng): Audio: aac, 48000 Hz, stereo, s16, 60 kb/s
+      Metadata:
+        creation_time   : 1970-01-01 00:00:00
+
+h264_1: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [mov,mp4,m4a,3gp,3g2,mj2 @ 0x101807c00] max_analyze_duration 5000000 reached at 5013333
+  Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'video.mp4':
+    Metadata:
+      major_brand     : qt  
+      minor_version   : 537199360
+      compatible_brands: qt  
+      creation_time   : 2009-05-19 17:34:31
+    Duration: 00:00:44.73, start: 0.000000, bitrate: 1136 kb/s
+      Stream #0.0(eng): Video: h264 (High), yuv420p, 720x406 [PAR 1:1 DAR 360:203], 1000 kb/s, 25 fps, 25 tbr, 2500 tbn, 50 tbc
+      Metadata:
+        creation_time   : 2009-05-19 17:34:31
+      Stream #0.1(eng): Audio: aac, 48000 Hz, stereo, s16, 94 kb/s
+      Metadata:
+        creation_time   : 2009-05-19 17:34:31
+      Stream #0.2(eng): Data: tmcd / 0x64636D74
+      Metadata:
+        creation_time   : 2009-05-19 17:34:31
+      Stream #0.3(eng): Data: rtp  / 0x20707472, 9 kb/s
+      Metadata:
+        creation_time   : 2009-05-19 17:34:31
+      Stream #0.4(eng): Data: rtp  / 0x20707472, 37 kb/s
+      Metadata:
+        creation_time   : 2009-05-19 17:34:31
+
+h264_2: |
+  ffmpeg version N-31981-g909e0fe, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 19 2011 04:57:01 with gcc 4.6.1 20110608 (prerelease)
+    configuration: --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-libgsm --enable-postproc --enable-libxvid --enable-libfaac --enable-pthreads --enable-libvorbis --enable-gpl --enable-x11grab --enable-nonfree
+    libavutil    51. 12. 0 / 51. 12. 0
+    libavcodec   53. 11. 0 / 53. 11. 0
+    libavformat  53.  8. 0 / 53.  8. 0
+    libavdevice  53.  3. 0 / 53.  3. 0
+    libavfilter   2. 32. 0 /  2. 32. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [mov,mp4,m4a,3gp,3g2,mj2 @ 0x2486460] multiple edit list entries, a/v desync might occur, patch welcome
+  Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'spiel.mp4':
+    Metadata:
+      major_brand     : isom
+      minor_version   : 512
+      compatible_brands: isomiso2avc1mp41
+      creation_time   : 1970-01-01 00:00:00
+      encoder         : Lavf53.8.0
+    Duration: 00:19:47.76, start: 0.000000, bitrate: 1098 kb/s
+      Stream #0.0(und): Video: h264 (Main), yuv420p, 620x350 [SAR 1:1 DAR 62:35], 997 kb/s, 24.93 fps, 25 tbr, 25 tbn, 50 tbc
+      Metadata:
+        creation_time   : 1970-01-01 00:00:00
+      Stream #0.1(und): Audio: aac, 44100 Hz, stereo, s16, 95 kb/s
+      Metadata:
+        creation_time   : 1970-01-01 00:00:00
+
+h264_3: |
+  ffmpeg version N-31981-g909e0fe, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 19 2011 04:57:01 with gcc 4.6.1 20110608 (prerelease)
+    configuration: --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-libgsm --enable-postproc --enable-libxvid --enable-libfaac --enable-pthreads --enable-libvorbis --enable-gpl --enable-x11grab --enable-nonfree
+    libavutil    51. 12. 0 / 51. 12. 0
+    libavcodec   53. 11. 0 / 53. 11. 0
+    libavformat  53.  8. 0 / 53.  8. 0
+    libavdevice  53.  3. 0 / 53.  3. 0
+    libavfilter   2. 32. 0 /  2. 32. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [mov,mp4,m4a,3gp,3g2,mj2 @ 0x186a460] multiple edit list entries, a/v desync might occur, patch welcome
+  Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'hockey.mp4':
+    Metadata:
+      major_brand     : isom
+      minor_version   : 512
+      compatible_brands: isomiso2avc1mp41
+      creation_time   : 1970-01-01 00:00:00
+      encoder         : Lavf53.8.0
+    Duration: 02:16:12.36, start: 0.000000, bitrate: 951 kb/s
+      Stream #0.0(und): Video: h264 (Main), yuv420p, 620x350 [SAR 1:1 DAR 62:35], 850 kb/s, 25 fps, 25 tbr, 25 tbn, 50 tbc
+      Metadata:
+        creation_time   : 1970-01-01 00:00:00
+      Stream #0.1(und): Audio: aac, 44100 Hz, stereo, s16, 95 kb/s
+      Metadata:
+        creation_time   : 1970-01-01 00:00:00
+
+invalid_data: |
+  ffmpeg version N-31981-g909e0fe, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 19 2011 04:57:01 with gcc 4.6.1 20110608 (prerelease)
+    configuration: --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-libgsm --enable-postproc --enable-libxvid --enable-libfaac --enable-pthreads --enable-libvorbis --enable-gpl --enable-x11grab --enable-nonfree
+    libavutil    51. 12. 0 / 51. 12. 0
+    libavcodec   53. 11. 0 / 53. 11. 0
+    libavformat  53.  8. 0 / 53.  8. 0
+    libavdevice  53.  3. 0 / 53.  3. 0
+    libavfilter   2. 32. 0 /  2. 32. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  Invalid.mp4: Invalid data found when processing input

@@ -6,57 +6,66 @@ module Vidibus
         METADATA = %w[audio_codec audio_sample_rate bitrate duration fps height
           size video_codec width]
 
+        # FFmpeg command
         def cmd
           "ffmpeg -i #{@path}"
         end
 
         def output
-          :stderr
+          "stderr"
         end
 
-        def valid?(metadata)
-          !(metadata[:width].zero? || metadata[:height].zero? || metadata[:duration].zero?)
+        def validate
+          %w[duration height width]
         end
 
         protected
 
         def audio_codec
-          /Audio:\s+([a-z]+),/.match(@raw_metadata)[1].presence
+          @raw_metadata[/Audio:\s+([a-z]+),/, 1]
         end
 
         def audio_sample_rate
-          /(\d+)\sHz/.match(@raw_metadata)[1].presence.to_i
+          if match = @raw_metadata[/(\d+)\sHz/, 1]
+            match.to_i
+          end
         end
 
         def bitrate
-          /bitrate:\s(\d+)\skb\/s/.match(@raw_metadata)[1].presence.to_i
+          if match = @raw_metadata[/bitrate:\s(\d+)\skb\/s/, 1]
+            match.to_i
+          end
         end
 
         def duration
-          str = /Duration:\s+([0-9\:\.]+),/.match(@raw_metadata)[1].presence
-          units = str.split(":").map(&:to_f)
-          (units[0] * 60 * 60 * 1000) + (units[1] * 60 * 1000) + (units[2] * 1000) / 1000
+          if match = @raw_metadata[/Duration:\s+([0-9\:\.]+),/, 1]
+            units = match.split(":").map(&:to_f)
+            (units[0] * 60 * 60 * 1000) + (units[1] * 60 * 1000) + (units[2] * 1000) / 1000
+          end
         end
 
         def fps
-          /(\d+)\s+fps,/.match(@raw_metadata)[1].presence.to_f
+          if match = @raw_metadata[/([\d\.]+)\s+fps,/, 1]
+            match.to_f
+          end
         end
 
         def height
-          dimension[1]
+          dimension[1] if dimension
         end
 
         def width
-          dimension[0]
+          dimension[0] if dimension
         end
 
         def dimension
-          str = /^.*Video:.*( \d+x\d+ ).*$/.match(@raw_metadata)[1].strip.presence
-          str.split("x").map(&:to_i)
+          if match =  @raw_metadata[/^.*Video:.*(\s\d+x\d+\s).*$/, 1]
+            match.strip.split("x").map(&:to_i)
+          end
         end
 
         def video_codec
-          /Video:\s+([a-z0-9]+),/.match(@raw_metadata).presence[1]
+          @raw_metadata[/Video:\s*([a-zA-Z0-9\s\(\)]*),/, 1]
         end
       end
     end

@@ -5,47 +5,57 @@ module Vidibus
         FORMATS = %w[jpg jpeg png gif]
         METADATA = %w[bit content_type height orientation quality size width]
 
+        # ImageMagick command
         def cmd
           "identify -verbose #{@path}"
         end
 
         def output
-          :stdout
+          "stdout"
         end
 
-        def valid?(metadata)
-          !(metadata[:width].zero? || metadata[:height].zero?)
+        def validate
+          %w[height width]
         end
 
         protected
 
         def bit
-          /^\s*Depth:\s(\w+)-bit/.match(@raw_metadata)[1].presence.to_i
+          if match = @raw_metadata[/^\s*Depth:\s(\w+)-bit/, 1]
+            match.to_i
+          end
         end
 
         def content_type
-          /^\s*Format:\s(\w+)/.match(@raw_metadata)[1].presence.downcase
+          if match = @raw_metadata[/^\s*Format:\s(\w+)/, 1]
+            match.downcase
+          end
         end
 
         def height
-          dimension[1]
+          dimension[1] if dimension
         end
 
         def width
-          dimension[0]
+          dimension[0] if dimension
         end
 
         def dimension
-          str = /^\s*Geometry: (\w+)/.match(@raw_metadata)[1].presence
-          str.split("x").map(&:to_i)
+          if match = @raw_metadata[/^\s*Geometry:\s(\w+)/, 1]
+            match.split("x").map(&:to_i)
+          end
         end
 
         def orientation
-          /^\s*exif:Orientation:\s(\d+)/.match(@raw_metadata)[1].presence.to_i
+          if match = @raw_metadata[/^\s*exif:Orientation:\s(\d+)/, 1]
+            match.to_i
+          end
         end
 
         def quality
-          /^\s*Quality: (\d+)/.match(@raw_metadata)[1].presence.to_i
+          if match = @raw_metadata[/^\s*Quality:\s(\d+)/, 1]
+            match.to_i
+          end
         end
       end
     end

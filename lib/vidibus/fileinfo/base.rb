@@ -39,26 +39,27 @@ module Vidibus
 
         metadata = {}
         @processor::METADATA.each do |attribute|
-          begin
-            metadata[attribute.to_sym] = send(attribute)
-          rescue
-            raise DataError, "#{attribute}"
+          if data = send(attribute)
+            metadata[attribute.to_sym] = data
           end
         end
 
-        validate(metadata)
+        raise DataError unless valid?(metadata)
         metadata
       end
 
       def process_cmd
         pid, stdin, stdout, stderr = POSIX::Spawn::popen4(cmd)
-        raw_metadata = eval("#{output}.read")
+        raw_metadata = eval(output).read
         Process::waitpid(pid)
         raw_metadata
       end
 
-      def validate(metadata)
-        raise DataError unless valid?(metadata)
+      # Important attributes must be present and valid
+      def valid?(metadata)
+        validate.each do |attr|
+          return false if metadata[attr.to_sym].nil? || metadata[attr.to_sym].zero?
+        end
       end
 
       # The video/image file size in bytes.
