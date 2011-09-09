@@ -36,15 +36,13 @@ module Vidibus
 
       def parse_metadata
         @raw_metadata = process_cmd
-
         metadata = {}
         @processor::METADATA.each do |attribute|
           if data = send(attribute)
             metadata[attribute.to_sym] = data
           end
         end
-
-        raise DataError unless valid?(metadata)
+        raise DataError.new("Invalid metadata:\n#{@raw_metadata}") unless valid?(metadata)
         metadata
       end
 
