@@ -113,6 +113,31 @@ h264_3: |
       Metadata:
         creation_time   : 1970-01-01 00:00:00
 
+h264_baseline: |
+  ffmpeg version N-31981-g909e0fe, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 19 2011 04:57:01 with gcc 4.6.1 20110608 (prerelease)
+    configuration: --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-libgsm --enable-postproc --enable-libxvid --enable-libfaac --enable-pthreads --enable-libvorbis --enable-gpl --enable-x11grab --enable-nonfree
+    libavutil    51. 12. 0 / 51. 12. 0
+    libavcodec   53. 11. 0 / 53. 11. 0
+    libavformat  53.  8. 0 / 53.  8. 0
+    libavdevice  53.  3. 0 / 53.  3. 0
+    libavfilter   2. 32. 0 /  2. 32. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '3FragenBoll.mp4':
+    Metadata:
+      major_brand     : mp42
+      minor_version   : 1
+      compatible_brands: mp42mp41
+      creation_time   : 2011-09-09 16:28:37
+    Duration: 00:01:43.08, start: 0.000000, bitrate: 953 kb/s
+      Stream #0.0(eng): Video: h264 (Constrained Baseline), yuv420p, 620x350, 854 kb/s, 25 fps, 25 tbr, 25 tbn, 50 tbc
+      Metadata:
+        creation_time   : 2011-09-09 16:28:37
+      Stream #0.1(eng): Audio: aac, 44100 Hz, stereo, s16, 95 kb/s
+      Metadata:
+        creation_time   : 2011-09-09 16:28:37
+
 invalid_data: |
   ffmpeg version N-31981-g909e0fe, Copyright (c) 2000-2011 the FFmpeg developers
     built on Aug 19 2011 04:57:01 with gcc 4.6.1 20110608 (prerelease)

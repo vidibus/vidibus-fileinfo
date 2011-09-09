@@ -98,6 +98,19 @@ describe Vidibus::Fileinfo::Processor::Video do
       metadata[:width].should             eq(620)
     end
 
+    it "should parse metadata correctly (h264 baseline)" do
+      stub(subject).process_cmd {results["h264_baseline"]}
+      metadata = subject.data
+      metadata[:audio_codec].should       eq("aac")
+      metadata[:audio_sample_rate].should eq(44100)
+      metadata[:bitrate].should           eq(953)
+      metadata[:duration].should          eq(103.08)
+      metadata[:fps].should               eq(25.0)
+      metadata[:height].should            eq(350)
+      metadata[:width].should             eq(620)
+      metadata[:video_codec].should       eq("h264 (Constrained Baseline)")
+    end
+
     it "should raise DataError if metadata is invalid" do
       stub(subject).process_cmd {results["invalid_data"]}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
