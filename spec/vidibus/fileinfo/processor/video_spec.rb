@@ -98,7 +98,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       metadata[:width].should             eq(620)
     end
 
-    it "should raise DataError when metadata are invalid" do
+    it "should raise DataError if metadata is invalid" do
       stub(subject).process_cmd {results["invalid_data"]}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
