@@ -7,7 +7,7 @@ module Vidibus
 
         # ImageMagick command
         def cmd
-          "identify -verbose #{@path}"
+          %Q(identify -verbose "#{@path}")
         end
 
         def output

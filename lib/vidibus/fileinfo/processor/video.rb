@@ -8,7 +8,7 @@ module Vidibus
 
         # FFmpeg command
         def cmd
-          "ffmpeg -i #{@path}"
+          %Q(ffmpeg -i "#{@path}")
         end
 
         def output
