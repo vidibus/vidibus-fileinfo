@@ -439,6 +439,45 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
     end
 
+    context 'of a webm video without bitrate' do
+      before do
+        stub(subject).process_cmd { results['webm_without_bitrate'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('vorbis')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(44100)
+      end
+
+      it 'should not extract the bitrate' do
+        @metadata[:bitrate].should be_nil
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(5.56)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:fps].should eq(30)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(314)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('vp8')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(558)
+      end
+    end
+
     it "should raise DataError if metadata is invalid" do
       stub(subject).process_cmd {results["invalid_data"]}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
