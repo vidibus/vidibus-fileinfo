@@ -119,4 +119,41 @@ describe Vidibus::Fileinfo::Processor::Video do
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
   end
+
+  describe '#content_type' do
+    let(:mime_types) do
+      {
+        '3g2' => 'video/3gpp2',
+        '3gp' => 'video/3gpp',
+        'asf' => 'video/x-ms-asf',
+        'avi' => 'video/x-msvideo',
+        'dv' => 'video/x-dv',
+        'f4p' => 'video/mp4',
+        'f4v' => 'video/mp4',
+        'flv' => 'video/x-flv',
+        'ivf' => 'video/x-ivf',
+        'mj2' => 'video/MJ2',
+        'mjpg' => 'video/x-motion-jpeg',
+        'mkv' => 'video/x-matroska',
+        'mov' => 'video/quicktime',
+        'mp4' => 'video/mp4',
+        'mpeg' => 'video/mpeg',
+        'mpg' => 'video/mpeg',
+        'mxf' => 'application/mxf',
+        'ogv' => 'video/ogg',
+        'rm' => 'application/vnd.rn-realmedia',
+        'ts' => 'video/MP2T',
+        'webm' => 'video/webm',
+        'wmv' => 'video/x-ms-wmv'
+      }
+    end
+
+    Vidibus::Fileinfo::Processor::Video::FORMATS.each do |format|
+      it "should be valid for '#{format}'" do
+        stub(subject).path { "something.#{format}" }
+        stub(subject).format { format }
+        subject.send(:content_type).should eq(mime_types[format])
+      end
+    end
+  end
 end
