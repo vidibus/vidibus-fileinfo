@@ -10,7 +10,7 @@ module Vidibus
       end
 
       def format
-        @format ||= Fileinfo.format(@path)
+        @format ||= Fileinfo.format(path)
       end
 
       def mime_type
@@ -22,15 +22,15 @@ module Vidibus
       end
 
       def data
-        raise PathError unless @path
+        raise PathError unless path
         @data ||= parse_metadata
       end
 
       protected
 
       def check_file
-        raise FileAccessError unless File.exist?(@path)
-        raise NoFileError unless File.file?(@path)
+        raise FileAccessError unless File.exist?(path)
+        raise NoFileError unless File.file?(path)
       end
 
       def load_processor
@@ -66,7 +66,7 @@ module Vidibus
 
       # The video/image file size in bytes.
       def size
-        File.size(@path)
+        File.size(path)
       end
     end
   end
