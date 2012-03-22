@@ -49,69 +49,199 @@ describe Vidibus::Fileinfo::Processor::Video do
       subject.data[:content_type].should eql('video/mp4')
     end
 
-    it "should parse metadata correctly (mpeg4)" do
-      stub(subject).process_cmd {results["mpeg4"]}
-      metadata = subject.data
-      metadata[:audio_codec].should       eq("aac")
-      metadata[:audio_sample_rate].should eq(48000)
-      metadata[:bitrate].should           eq(602)
-      metadata[:duration].should          eq(1.92)
-      metadata[:fps].should               eq(25.0)
-      metadata[:height].should            eq(405)
-      metadata[:video_codec].should       eq("mpeg4")
-      metadata[:width].should             eq(720)
+    context 'of a mpeg4 video' do
+      before do
+        stub(subject).process_cmd { results['mpeg4'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('aac')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(48000)
+      end
+
+      it 'should extract the bitrate' do
+        @metadata[:bitrate].should eq(602)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(1.92)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:fps].should eq(25.0)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(405)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('mpeg4')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(720)
+      end
     end
 
-    it "should parse metadata correctly (h264 1)" do
-      stub(subject).process_cmd {results["h264_1"]}
-      metadata = subject.data
-      metadata[:audio_codec].should       eq("aac")
-      metadata[:audio_sample_rate].should eq(48000)
-      metadata[:bitrate].should           eq(1136)
-      metadata[:duration].should          eq(44.73)
-      metadata[:fps].should               eq(25.0)
-      metadata[:height].should            eq(406)
-      metadata[:video_codec].should       eq("h264 (High)")
-      metadata[:width].should             eq(720)
+    context 'of a h264 video (example 1)' do
+      before do
+        stub(subject).process_cmd { results['h264_1'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('aac')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(48000)
+      end
+
+      it 'should extract the bitrate' do
+        @metadata[:bitrate].should eq(1136)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(44.73)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:fps].should eq(25.0)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(406)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('h264 (High)')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(720)
+      end
     end
 
-    it "should parse metadata correctly (h264 2)" do
-      stub(subject).process_cmd {results["h264_2"]}
-      metadata = subject.data
-      metadata[:audio_codec].should       eq("aac")
-      metadata[:audio_sample_rate].should eq(44100)
-      metadata[:bitrate].should           eq(1098)
-      metadata[:duration].should          eq(1187.76)
-      metadata[:fps].should               eq(24.93)
-      metadata[:height].should            eq(350)
-      metadata[:video_codec].should       eq("h264 (Main)")
-      metadata[:width].should             eq(620)
+    context 'of a h264 video (example 2)' do
+      before do
+        stub(subject).process_cmd { results['h264_2'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('aac')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(44100)
+      end
+
+      it 'should extract the bitrate' do
+        @metadata[:bitrate].should eq(1098)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(1187.76)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:fps].should eq(24.93)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(350)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('h264 (Main)')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(620)
+      end
     end
 
-    it "should parse metadata correctly (h264 3)" do
-      stub(subject).process_cmd {results["h264_3"]}
-      metadata = subject.data
-      metadata[:audio_codec].should       eq("aac")
-      metadata[:audio_sample_rate].should eq(44100)
-      metadata[:bitrate].should           eq(951)
-      metadata[:duration].should          eq(8172.36)
-      metadata[:fps].should               eq(25.0)
-      metadata[:height].should            eq(350)
-      metadata[:video_codec].should       eq("h264 (Main)")
-      metadata[:width].should             eq(620)
+    context 'of a h264 video (example 3)' do
+      before do
+        stub(subject).process_cmd { results['h264_3'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('aac')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(44100)
+      end
+
+      it 'should extract the bitrate' do
+        @metadata[:bitrate].should eq(951)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(8172.36)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:fps].should eq(25)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(350)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('h264 (Main)')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(620)
+      end
     end
 
-    it "should parse metadata correctly (h264 baseline)" do
-      stub(subject).process_cmd {results["h264_baseline"]}
-      metadata = subject.data
-      metadata[:audio_codec].should       eq("aac")
-      metadata[:audio_sample_rate].should eq(44100)
-      metadata[:bitrate].should           eq(953)
-      metadata[:duration].should          eq(103.08)
-      metadata[:fps].should               eq(25.0)
-      metadata[:height].should            eq(350)
-      metadata[:width].should             eq(620)
-      metadata[:video_codec].should       eq("h264 (Constrained Baseline)")
+    context 'of a h264 video (baseline example)' do
+      before do
+        stub(subject).process_cmd { results['h264_baseline'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('aac')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(44100)
+      end
+
+      it 'should extract the bitrate' do
+        @metadata[:bitrate].should eq(953)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(103.08)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:fps].should eq(25.0)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(350)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('h264 (Constrained Baseline)')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(620)
+      end
     end
 
     it "should raise DataError if metadata is invalid" do
