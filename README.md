@@ -71,6 +71,7 @@ For videos, a different hash will be returned:
 :height            # height of video
 :size              # file size in bytes
 :duration          # duration of video in seconds
+:content_type      # content type of video, e.g. "video/mp4"
 :fps               # frames per second
 :bitrate           # overall bit rate (video + audio)
 :video_codec       # codec of video stream, e.g. "h264"
@@ -81,9 +82,9 @@ For videos, a different hash will be returned:
 These video formats are currently supported:
 
 ```
-avi, flv, h261, h263, h264, ipod, m4v, mov, mp4, mpeg, mxf, ogg
+3g2 3gp asf avi dv f4p f4v flv ivf m21 mj2 mjpg mkv mov mp4 mpeg mpg mxf ogg ogv rm ts webm wmv
 ```
 
 ## Copyright
 
-Copyright (c) 2011 Andre Pankratz. See LICENSE for details.
+Copyright (c) 2011-2012 Andre Pankratz. See LICENSE for details.
