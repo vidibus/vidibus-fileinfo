@@ -48,7 +48,9 @@ module Vidibus
         end
 
         def fps
-          if match = @raw_metadata[/([\d\.]+)\s+fps,/, 1]
+          match = @raw_metadata[/([\d\.]+)\s+fps,/, 1]
+          match ||= @raw_metadata[/([\d\.]+)\s+tbr,/, 1]
+          if match
             match.to_f
           end
         end
