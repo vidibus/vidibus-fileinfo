@@ -2,7 +2,7 @@ module Vidibus
   module Fileinfo
     module Processor
       module Video
-        FORMATS = %w[avi flv h261 h263 h264 ipod m4v mov mp4 mpeg mxf ogg]
+        FORMATS = %w[3g2 3gp asf avi dv f4p f4v flv ivf m21 mj2 mjpg mkv mov mp4 mpeg mpg mxf ogv rm ts webm wmv]
         METADATA = %w[audio_codec audio_sample_rate content_type bitrate duration fps height size video_codec width]
 
         # FFmpeg command

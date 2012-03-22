@@ -12,7 +12,7 @@ describe Vidibus::Fileinfo do
 
   describe ".formats" do
     it "should return a list of processable file formats" do
-      subject.formats.should eql(%w[avi flv gif h261 h263 h264 ipod jpeg jpg m4v mov mp4 mpeg mxf ogg png])
+      subject.formats.should eql(%w[3g2 3gp asf avi dv f4p f4v flv gif ivf jpeg jpg m21 mj2 mjpg mkv mov mp4 mpeg mpg mxf ogv png rm ts webm wmv])
     end
   end
 
