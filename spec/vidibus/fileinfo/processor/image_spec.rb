@@ -41,7 +41,7 @@ describe Vidibus::Fileinfo::Processor::Image do
 
   it "should return a hash of correct image metadata" do
     metadata = {
-      :content_type => 'jpeg',
+      :content_type => 'image/jpeg',
       :width => 200,
       :height => 194,
       :bit => 8,

@@ -27,9 +27,7 @@ module Vidibus
         end
 
         def content_type
-          if match = @raw_metadata[/^\s*Format:\s(\w+)/, 1]
-            match.downcase
-          end
+          super('image')
         end
 
         def height
