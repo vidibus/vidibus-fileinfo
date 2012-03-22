@@ -556,6 +556,45 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
     end
 
+    context 'of a mjpg video' do
+      before do
+        stub(subject).process_cmd { results['mjpg'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('pcm_s16be')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(16000)
+      end
+
+      it 'should extract the bitrate' do
+        @metadata[:bitrate].should eq(26751)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(20.50)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:fps].should eq(30.0)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(720)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('mjpeg')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(1280)
+      end
+    end
+
     it "should raise DataError if metadata is invalid" do
       stub(subject).process_cmd {results["invalid_data"]}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
