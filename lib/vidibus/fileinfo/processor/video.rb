@@ -3,7 +3,7 @@ module Vidibus
     module Processor
       module Video
         FORMATS = %w[avi flv h261 h263 h264 ipod m4v mov mp4 mpeg mxf ogg]
-        METADATA = %w[audio_codec audio_sample_rate bitrate duration fps height size video_codec width]
+        METADATA = %w[audio_codec audio_sample_rate content_type bitrate duration fps height size video_codec width]
 
         # FFmpeg command
         def cmd
@@ -34,6 +34,10 @@ module Vidibus
           if match = @raw_metadata[/bitrate:\s(\d+)\skb\/s/, 1]
             match.to_i
           end
+        end
+
+        def content_type
+          super('video')
         end
 
         def duration

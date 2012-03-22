@@ -13,7 +13,7 @@ describe Vidibus::Fileinfo::Processor::Video do
 
   describe "METADATA" do
     it "should include various metadata attributes" do
-      metadata = %w[audio_codec audio_sample_rate bitrate duration fps height size video_codec width]
+      metadata = %w[audio_codec audio_sample_rate content_type bitrate duration fps height size video_codec width]
       Vidibus::Fileinfo::Processor::Video::METADATA.should eq(metadata)
     end
   end
@@ -43,6 +43,10 @@ describe Vidibus::Fileinfo::Processor::Video do
     it 'should raise a DataError if "duration" validation fails' do
       stub(subject).duration {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
+    end
+
+    it 'should include the content_type' do
+      subject.data[:content_type].should eql('video/mp4')
     end
 
     it "should parse metadata correctly (mpeg4)" do
