@@ -283,7 +283,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
     end
 
-    context 'of a avi video without audio track' do
+    context 'of an avi video without audio track' do
       before do
         stub(subject).process_cmd { results['avi_without_audio'] }
         @metadata = subject.data
@@ -322,7 +322,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
     end
 
-    context 'of a avi hypercam video without audio track' do
+    context 'of an avi hypercam video without audio track' do
       before do
         stub(subject).process_cmd { results['avi_hypercam'] }
         @metadata = subject.data
