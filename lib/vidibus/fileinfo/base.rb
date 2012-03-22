@@ -26,7 +26,7 @@ module Vidibus
             sub_types = media_types.select { |m| m.sub_type == format }
             media_types = sub_types if sub_types.any?
           end
-          types = media_types
+          types = media_types if media_types.any?
         end
         types.first.content_type if types.any?
       end

@@ -61,10 +61,10 @@ describe Vidibus::Fileinfo::Base do
       jpg_info.mime_type('audio').should eq('audio/mp4')
     end
 
-    it 'should return nothing if wanted media type is not available' do
-      stub(jpg_info).path { 'something.mp4' }
-      stub(jpg_info).format { 'mp4' }
-      jpg_info.mime_type('text').should be_nil
+    it 'should return alternative if wanted media type is not available' do
+      stub(jpg_info).path { 'something.rm' }
+      stub(jpg_info).format { 'rm' }
+      jpg_info.mime_type('video').should eq('application/vnd.rn-realmedia')
     end
 
     it 'should be aliased as #content_type' do
