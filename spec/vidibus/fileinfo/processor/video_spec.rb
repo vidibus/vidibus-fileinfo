@@ -400,6 +400,45 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
     end
 
+    context 'of a ts video' do
+      before do
+        stub(subject).process_cmd { results['ts'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('mp2')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(48000)
+      end
+
+      it 'should extract the bitrate' do
+        @metadata[:bitrate].should eq(5006)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(93.52)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:fps].should eq(29.97)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(480)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('mpeg2video (Main)')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(480)
+      end
+    end
+
     it "should raise DataError if metadata is invalid" do
       stub(subject).process_cmd {results["invalid_data"]}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
