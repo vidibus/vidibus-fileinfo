@@ -30,6 +30,7 @@ module Vidibus
         end
         types.first.content_type if types.any?
       end
+      alias :content_type :mime_type
 
       def data
         raise PathError unless path

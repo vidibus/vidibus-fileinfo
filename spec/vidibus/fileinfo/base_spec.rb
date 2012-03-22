@@ -66,6 +66,10 @@ describe Vidibus::Fileinfo::Base do
       stub(jpg_info).format { 'mp4' }
       jpg_info.mime_type('text').should be_nil
     end
+
+    it 'should be aliased as #content_type' do
+      jpg_info.send(:content_type).should eq('image/jpeg')
+    end
   end
 
   describe "#path" do
