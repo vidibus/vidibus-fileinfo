@@ -285,7 +285,7 @@ describe Vidibus::Fileinfo::Processor::Video do
 
     context 'of a avi video without audio track' do
       before do
-        stub(subject).process_cmd { results['avi'] }
+        stub(subject).process_cmd { results['avi_without_audio'] }
         @metadata = subject.data
       end
 
