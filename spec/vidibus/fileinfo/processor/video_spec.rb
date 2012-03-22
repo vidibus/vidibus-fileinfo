@@ -283,6 +283,45 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
     end
 
+    context 'of an avi video' do
+      before do
+        stub(subject).process_cmd { results['avi'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('mp3')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(48000)
+      end
+
+      it 'should extract the bitrate' do
+        @metadata[:bitrate].should eq(2099)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(596.45)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:fps].should eq(24.00)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(480)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('msmpeg4v2')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(854)
+      end
+    end
+
     context 'of an avi video without audio track' do
       before do
         stub(subject).process_cmd { results['avi_without_audio'] }
