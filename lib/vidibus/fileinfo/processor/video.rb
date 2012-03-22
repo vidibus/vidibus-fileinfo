@@ -70,7 +70,9 @@ module Vidibus
         end
 
         def video_codec
-          @raw_metadata[/Video:\s*([a-zA-Z0-9\s\(\)]*),/, 1]
+          if codec = @raw_metadata[/Video:\s*([a-zA-Z0-9\s\(\)]*)[\s\/,]+/, 1]
+            codec.strip
+          end
         end
       end
     end
