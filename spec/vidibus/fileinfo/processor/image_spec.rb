@@ -35,20 +35,20 @@ describe Vidibus::Fileinfo::Processor::Image do
 
   describe "#process_cmd" do
     it "should return raw metadata from an image" do
-      subject.data.present?.should be_true
+      subject.data.should_not be_empty
     end
   end
 
-    it "should return a hash of correct image metadata" do
-      attr = {
-        :content_type => "jpeg",
-        :width => 200,
-        :height => 194,
-        :bit => 8,
-        :orientation => 6,
-        :quality => 92,
-        :size => 37958
-      }
-      subject.data.should eq(attr)
+  it "should return a hash of correct image metadata" do
+    metadata = {
+      :content_type => 'jpeg',
+      :width => 200,
+      :height => 194,
+      :bit => 8,
+      :orientation => 6,
+      :quality => 92,
+      :size => 37958
+    }
+    subject.data.should eq(metadata)
   end
 end

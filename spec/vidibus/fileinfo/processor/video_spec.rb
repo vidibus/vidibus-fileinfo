@@ -21,7 +21,7 @@ describe Vidibus::Fileinfo::Processor::Video do
 
   describe "#process_cmd" do
     it "should return raw metadata from an video" do
-      subject.data.present?.should be_true
+      subject.data.should_not be_empty
     end
   end
 

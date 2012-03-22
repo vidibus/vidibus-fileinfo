@@ -46,8 +46,7 @@ describe Vidibus::Fileinfo::Base do
 
   describe "#mime_type" do
     it "should return the current file's mime type" do
-      mock(Mime::Type).lookup_by_extension("jpg") {"image/jpeg"}
-      jpg_info.mime_type
+      jpg_info.mime_type.should eq('image/jpeg')
     end
   end
 

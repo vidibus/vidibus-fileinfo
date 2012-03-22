@@ -1,4 +1,4 @@
-require "action_dispatch/http/mime_type"
+require "mime/types"
 require "posix/spawn"
 require "vidibus-core_extensions"
 

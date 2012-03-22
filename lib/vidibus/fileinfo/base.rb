@@ -14,7 +14,11 @@ module Vidibus
       end
 
       def mime_type
-        @mime_type ||= Mime::Type.lookup_by_extension(format)
+        @mime_type ||= begin
+          if mime = MIME::Types.type_for(@path)
+            mime.first.simplified
+          end
+        end
       end
 
       def data
