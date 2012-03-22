@@ -21,7 +21,7 @@ module Vidibus
         protected
 
         def audio_codec
-          @raw_metadata[/Audio:\s+([a-z0-9]+),/, 1]
+          @raw_metadata[/Audio:\s+([a-z0-9_]+),/, 1]
         end
 
         def audio_sample_rate
