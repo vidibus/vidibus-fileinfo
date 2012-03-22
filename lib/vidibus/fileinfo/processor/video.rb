@@ -43,7 +43,8 @@ module Vidibus
         def duration
           if match = @raw_metadata[/Duration:\s+([0-9\:\.]+),/, 1]
             units = match.split(":").map(&:to_f)
-            units[0]*3600 + units[1]*60 + units[2]
+            f = units[0]*3600 + units[1]*60 + units[2]
+            (f * 100).round.to_f / 100
           end
         end
 
