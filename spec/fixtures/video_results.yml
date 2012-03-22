@@ -138,6 +138,204 @@ h264_baseline: |
       Metadata:
         creation_time   : 2011-09-09 16:28:37
 
+wmv: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+
+  Seems stream 1 codec frame rate differs from container frame rate: 1000.00 (1000/1) -> 29.97 (30000/1001)
+  Input #0, asf, from 'ELL_PART_5_768k.wmv':
+    Metadata:
+      WMFSDKVersion   : 9.00.00.2980
+      WMFSDKNeeded    : 0.0.0.0000
+      IsVBR           : 0
+    Duration: 00:02:31.79, start: 0.000000, bitrate: 699 kb/s
+      Stream #0.0(eng): Audio: wmav2, 44100 Hz, 2 channels, s16, 64 kb/s
+      Stream #0.1(eng): Video: wmv3 (Main), yuv420p, 400x300, 626 kb/s, 29.97 tbr, 1k tbn, 1k tbc
+  At least one output file must be specified
+
+avi: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [avi @ 0x101807c00] max_analyze_duration 5000000 reached at 5000000
+  Input #0, avi, from 'cbw3.avi':
+    Duration: 00:00:06.25, start: 0.000000, bitrate: 1071 kb/s
+      Stream #0.0: Video: IV41 / 0x31345649, 256x240, 40 fps, 40 tbr, 40 tbn, 40 tbc
+  At least one output file must be specified
+
+avi_hypercam: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [avi @ 0x101807c00] max_analyze_duration 5000000 reached at 5000000
+  Input #0, avi, from 'Hammer_Sedick0001.avi':
+    Duration: 00:01:02.00, start: 0.000000, bitrate: 128 kb/s
+      Stream #0.0: Video: msvideo1, rgb555le, 588x476, 1 fps, 1 tbr, 1 tbn, 1 tbc
+      Metadata:
+        title           : HyperCam Video
+  At least one output file must be specified
+
+mkv: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [matroska,webm @ 0x101807c00] Estimating duration from bitrate, this may be inaccurate
+  Input #0, matroska,webm, from '/Users/punkrats/Downloads/Pokkiri_2007__DarkLegends_sample.mkv':
+    Duration: 00:00:44.58, start: 0.000000, bitrate: N/A
+      Chapter #0.0: start 0.097000, end 44.587000
+      Metadata:
+        title           : 00:00:00.097
+      Stream #0.0: Video: h264 (High), yuv420p, 592x256 [PAR 1:1 DAR 37:16], 23.98 fps, 23.98 tbr, 1k tbn, 47.95 tbc (default)
+      Stream #0.1: Audio: aac, 48000 Hz, stereo, s16 (default)
+  At least one output file must be specified
+
+ts: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [mpeg2video @ 0x101809a00] mpeg_decode_postinit() failure
+  [mpegts @ 0x101807c00] max_analyze_duration 5000000 reached at 5016000
+  Input #0, mpegts, from '/Users/punkrats/Downloads/hbo_dtc_sd.ts':
+    Duration: 00:01:33.52, start: 91.904789, bitrate: 5006 kb/s
+    Program 1
+      Stream #0.0[0x11]: Video: mpeg2video (Main), yuv420p, 480x480 [PAR 4:3 DAR 4:3], 15000 kb/s, 29.97 fps, 29.97 tbr, 90k tbn, 59.94 tbc
+      Stream #0.1[0x14]: Audio: mp2, 48000 Hz, stereo, s16, 192 kb/s
+  At least one output file must be specified
+
+webm: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [matroska,webm @ 0x101807c00] Estimating duration from bitrate, this may be inaccurate
+  Input #0, matroska,webm, from 'gizmo.webm':
+    Duration: 00:00:05.56, start: 0.000000, bitrate: N/A
+      Stream #0.0(eng): Video: vp8, yuv420p, 558x314, PAR 1:1 DAR 279:157, 30 fps, 30 tbr, 1k tbn, 30 tbc (default)
+      Stream #0.1(eng): Audio: vorbis, 44100 Hz, mono, s16 (default)
+  At least one output file must be specified
+
+ogg: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [theora @ 0x101810200] 7 bits left in packet 82
+  Input #0, ogg, from 'Stardust_Reentry.ogg':
+    Duration: 00:01:04.93, start: 0.000000, bitrate: 504 kb/s
+      Stream #0.0: Video: theora, yuv420p, 320x240, 29.97 fps, 29.97 tbr, 29.97 tbn, 29.97 tbc
+      Stream #0.1: Audio: vorbis, 44100 Hz, mono, s16, 60 kb/s
+      Metadata:
+        ENCODER         : ffmpeg2theora 0.16
+  At least one output file must be specified
+
+mxf: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [mxf @ 0x101807c00] max_analyze_duration 5000000 reached at 5000000
+  [mxf @ 0x101807c00] Estimating duration from bitrate, this may be inaccurate
+  Input #0, mxf, from 'freeMXF-mxf1.mxf':
+    Duration: 00:00:10.72, start: 0.000000, bitrate: 2101 kb/s
+      Stream #0.0: Video: mpeg2video (Main), yuv420p, 720x576 [PAR 16:15 DAR 4:3], 2097 kb/s, 25 fps, 25 tbr, 25 tbn, 50 tbc
+  At least one output file must be specified
+
+mjpg: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'P1020079.mjpeg':
+    Metadata:
+      major_brand     : qt
+      minor_version   : 537331972
+      compatible_brands: qt  pana
+      creation_time   : 2009-05-03 16:28:57
+    Duration: 00:00:20.50, start: 0.000000, bitrate: 26751 kb/s
+      Stream #0.0(eng): Video: mjpeg, yuvj420p, 1280x720, 26237 kb/s, 30 fps, 30 tbr, 30 tbn, 30 tbc
+      Metadata:
+        creation_time   : 2009-05-03 16:28:57
+      Stream #0.1(eng): Audio: pcm_s16be, 16000 Hz, 2 channels, s16, 512 kb/s
+      Metadata:
+        creation_time   : 2009-05-03 16:28:57
+  At least one output file must be specified
+
+ivf: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  Input #0, ivf, from 'parkjoy.ivf':
+    Duration: 00:00:10.00, start: 0.000000, bitrate: 13983 kb/s
+      Stream #0.0: Video: vp8, yuv420p, 1920x1080, 50 tbr, 50 tbn, 50 tbc
+  At least one output file must be specified
+
 invalid_data: |
   ffmpeg version N-31981-g909e0fe, Copyright (c) 2000-2011 the FFmpeg developers
     built on Aug 19 2011 04:57:01 with gcc 4.6.1 20110608 (prerelease)
