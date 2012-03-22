@@ -355,6 +355,39 @@ ivf_without_audio: |
       Stream #0.0: Video: vp8, yuv420p, 1920x1080, 50 tbr, 50 tbn, 50 tbc
   At least one output file must be specified
 
+mov: |
+  ffmpeg version 0.8, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 15 2011 21:34:13 with gcc 4.2.1 (Apple Inc. build 5666) (dot 3)
+    configuration: --prefix=/usr/local/Cellar/ffmpeg/0.8 --enable-gpl --enable-version3 --enable-nonfree --enable-hardcoded-tables --enable-libx264 --enable-libfaac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libxvid
+    libavutil    51.  9. 1 / 51.  9. 1
+    libavcodec   53.  7. 0 / 53.  7. 0
+    libavformat  53.  4. 0 / 53.  4. 0
+    libavdevice  53.  1. 1 / 53.  1. 1
+    libavfilter   2. 23. 0 /  2. 23. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [mov,mp4,m4a,3gp,3g2,mj2 @ 0x101807c00] Unknown container channel layout.
+  [mov,mp4,m4a,3gp,3g2,mj2 @ 0x101807c00] max_analyze_duration 5000000 reached at 5013333
+
+  Seems stream 0 codec frame rate differs from container frame rate: 4800.00 (4800/1) -> 24.00 (24/1)
+  Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'big_buck_bunny_480p_h264.mov':
+    Metadata:
+      major_brand     : qt
+      minor_version   : 537199360
+      compatible_brands: qt
+      creation_time   : 2008-05-27 18:32:32
+    Duration: 00:09:56.48, start: 0.000000, bitrate: 3342 kb/s
+      Stream #0.0(eng): Video: h264 (Main), yuv420p, 854x480, 2899 kb/s, 24 fps, 24 tbr, 2400 tbn, 4800 tbc
+      Metadata:
+        creation_time   : 2008-05-27 18:32:32
+      Stream #0.1(eng): Data: tmcd / 0x64636D74
+      Metadata:
+        creation_time   : 2008-05-27 18:32:32
+      Stream #0.2(eng): Audio: aac, 48000 Hz, 5.1, s16, 437 kb/s
+      Metadata:
+        creation_time   : 2008-05-27 18:32:32
+  At least one output file must be specified
+
 invalid_data: |
   ffmpeg version N-31981-g909e0fe, Copyright (c) 2000-2011 the FFmpeg developers
     built on Aug 19 2011 04:57:01 with gcc 4.6.1 20110608 (prerelease)
