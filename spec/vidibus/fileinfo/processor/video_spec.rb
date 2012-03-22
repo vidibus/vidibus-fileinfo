@@ -478,6 +478,45 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
     end
 
+    context 'of an ogg video' do
+      before do
+        stub(subject).process_cmd { results['ogg'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('vorbis')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(44100)
+      end
+
+      it 'should extract the bitrate' do
+        @metadata[:bitrate].should eq(504)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(64.93)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:fps].should eq(29.97)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(240)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('theora')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(320)
+      end
+    end
+
     it "should raise DataError if metadata is invalid" do
       stub(subject).process_cmd {results["invalid_data"]}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
