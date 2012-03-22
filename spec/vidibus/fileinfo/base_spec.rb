@@ -48,6 +48,24 @@ describe Vidibus::Fileinfo::Base do
     it "should return the current file's mime type" do
       jpg_info.mime_type.should eq('image/jpeg')
     end
+
+    it 'should return the wanted media type "video"' do
+      stub(jpg_info).path { 'something.mp4' }
+      stub(jpg_info).format { 'mp4' }
+      jpg_info.mime_type('video').should eq('video/mp4')
+    end
+
+    it 'should return the wanted media type "audio"' do
+      stub(jpg_info).path { 'something.mp4' }
+      stub(jpg_info).format { 'mp4' }
+      jpg_info.mime_type('audio').should eq('audio/mp4')
+    end
+
+    it 'should return nothing if wanted media type is not available' do
+      stub(jpg_info).path { 'something.mp4' }
+      stub(jpg_info).format { 'mp4' }
+      jpg_info.mime_type('text').should be_nil
+    end
   end
 
   describe "#path" do

@@ -13,12 +13,22 @@ module Vidibus
         @format ||= Fileinfo.format(path)
       end
 
-      def mime_type
-        @mime_type ||= begin
-          if mime = MIME::Types.type_for(@path)
-            mime.first.simplified
+      # Return the mime type of the current instance.
+      # If a media_type is given, only a matching mime
+      # type will be returned.
+      def mime_type(media_type = nil)
+        types = MIME::Types.type_for(path)
+        return if types.empty?
+        if media_type
+          media_type = media_type.to_s
+          media_types = types.select { |m| m.media_type == media_type }
+          if media_types.length > 1
+            sub_types = media_types.select { |m| m.sub_type == format }
+            media_types = sub_types if sub_types.any?
           end
+          types = media_types
         end
+        types.first.content_type if types.any?
       end
 
       def data
