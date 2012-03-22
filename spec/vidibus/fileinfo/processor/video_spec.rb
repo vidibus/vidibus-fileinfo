@@ -31,17 +31,17 @@ describe Vidibus::Fileinfo::Processor::Video do
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::PathError)
     end
 
-    it %q(should raise DataError if "height" validation fails) do
+    it 'should raise a DataError if "height" validation fails' do
       stub(subject).height {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
-    it %q(should raise DataError if "width" validation fails) do
+    it 'should raise a DataError if "width" validation fails' do
       stub(subject).width {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
-    it %q(should raise DataError if "duration" validation fails) do
+    it 'should raise a DataError if "duration" validation fails' do
       stub(subject).duration {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
