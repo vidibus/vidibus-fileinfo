@@ -51,7 +51,7 @@ For images, a hash with following data will be returned:
 :height            # height of image
 :size              # file size in bytes
 :bit               # depth in bit
-:content_type      # content type of image, e.g. "jpeg"
+:content_type      # content type of image, e.g. "image/jpeg"
 :orientation       # visual position e.g. 6 (right top). See "Exif orientation" for more
 :quality           # quality of image
 ```
