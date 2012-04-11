@@ -514,7 +514,8 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the width' do
-        @metadata[:width].should eq(480)
+        @metadata[:width].should eq(640)
+      end
 
       it 'should extract the aspect ratio' do
         @metadata[:aspect_ratio].should be_within(0.0001).of(1.33333)
@@ -642,7 +643,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the width' do
-        @metadata[:width].should eq(720)
+        @metadata[:width].should eq(768)
       end
 
       it 'should extract the aspect ratio' do

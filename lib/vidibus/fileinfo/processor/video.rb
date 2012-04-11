@@ -63,6 +63,20 @@ module Vidibus
           end
         end
 
+        # Return pixel aspect ratio defined as PAR.
+        # If no value is defined, 1.0 will be returned.
+        def pixel_aspect_ratio
+          ar = 1.0
+          if matches = @raw_metadata.match(/PAR\s+([0-9]+):([0-9]+)/)
+            w = $1.to_f
+            h = $2.to_f
+            if w > 0 && h > 0
+              ar = w/h
+            end
+          end
+          ar
+        end
+
         def duration
           if match = @raw_metadata[/Duration:\s+([0-9\:\.]+),/, 1]
             units = match.split(":").map(&:to_f)
@@ -84,8 +98,16 @@ module Vidibus
           dimension[1] if dimension
         end
 
+        # Return height from dimensions and apply
+        # pixel aspect ratio.
         def width
-          dimension[0] if dimension
+          if dimension
+            w = dimension[0]
+            if pixel_aspect_ratio != 1
+              return (w * pixel_aspect_ratio).round
+            end
+            w
+          end
         end
 
         def dimension
