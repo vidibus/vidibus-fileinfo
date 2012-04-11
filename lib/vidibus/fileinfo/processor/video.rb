@@ -67,7 +67,7 @@ module Vidibus
 
         def dimension
           if match = @raw_metadata[/^.*Video:.*?,.*?(\d+x\d+)/, 1]
-            match.strip.split("x").map(&:to_i)
+            match.strip.split('x').map(&:to_i)
           end
         end
 
