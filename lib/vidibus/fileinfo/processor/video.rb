@@ -36,12 +36,12 @@ module Vidibus
           end
         end
 
-        def bitrate
+        def bit_rate
           if match = @raw_metadata[/bitrate:\s(\d+)\skb\/s/, 1]
             match.to_i
           end
         end
-        alias :bit_rate :bitrate
+        alias :bitrate :bit_rate
 
         def content_type
           super('video')
@@ -55,14 +55,14 @@ module Vidibus
           end
         end
 
-        def fps
+        def frame_rate
           match = @raw_metadata[/([\d\.]+)\s+fps,/, 1]
           match ||= @raw_metadata[/([\d\.]+)\s+tbr,/, 1]
           if match
             match.to_f
           end
         end
-        alias :frame_rate :fps
+        alias :fps :frame_rate
 
         def height
           dimension[1] if dimension
