@@ -63,8 +63,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(48000)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(602)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(602)
       end
 
       it 'should extract the duration in seconds' do
@@ -72,7 +72,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(25.0)
+        @metadata[:frame_rate].should eq(25.0)
       end
 
       it 'should extract the height' do
@@ -102,8 +102,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(48000)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(1136)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(1136)
       end
 
       it 'should extract the duration in seconds' do
@@ -111,7 +111,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(25.0)
+        @metadata[:frame_rate].should eq(25.0)
       end
 
       it 'should extract the height' do
@@ -141,8 +141,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(44100)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(1098)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(1098)
       end
 
       it 'should extract the duration in seconds' do
@@ -150,7 +150,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(24.93)
+        @metadata[:frame_rate].should eq(24.93)
       end
 
       it 'should extract the height' do
@@ -180,8 +180,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(44100)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(951)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(951)
       end
 
       it 'should extract the duration in seconds' do
@@ -189,7 +189,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(25)
+        @metadata[:frame_rate].should eq(25)
       end
 
       it 'should extract the height' do
@@ -219,8 +219,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(44100)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(953)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(953)
       end
 
       it 'should extract the duration in seconds' do
@@ -228,7 +228,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(25.0)
+        @metadata[:frame_rate].should eq(25.0)
       end
 
       it 'should extract the height' do
@@ -258,8 +258,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(44100)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(699)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(699)
       end
 
       it 'should extract the duration in seconds' do
@@ -267,7 +267,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(29.97)
+        @metadata[:frame_rate].should eq(29.97)
       end
 
       it 'should extract the height' do
@@ -297,8 +297,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(48000)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(2099)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(2099)
       end
 
       it 'should extract the duration in seconds' do
@@ -306,7 +306,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(24.00)
+        @metadata[:frame_rate].should eq(24.00)
       end
 
       it 'should extract the height' do
@@ -336,8 +336,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should be_nil
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(1071)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(1071)
       end
 
       it 'should extract the duration in seconds' do
@@ -345,7 +345,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(40.0)
+        @metadata[:frame_rate].should eq(40.0)
       end
 
       it 'should extract the height' do
@@ -375,8 +375,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should be_nil
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(128)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(128)
       end
 
       it 'should extract the duration in seconds' do
@@ -384,7 +384,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(1.0)
+        @metadata[:frame_rate].should eq(1.0)
       end
 
       it 'should extract the height' do
@@ -400,9 +400,9 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
     end
 
-    context 'of a mkv video without bitrate' do
+    context 'of a mkv video without bit rate' do
       before do
-        stub(subject).process_cmd { results['mkv_without_bitrate'] }
+        stub(subject).process_cmd { results['mkv_without_bit_rate'] }
         @metadata = subject.data
       end
 
@@ -414,8 +414,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(48000)
       end
 
-      it 'should not extract the bitrate' do
-        @metadata[:bitrate].should be_nil
+      it 'should not extract the bit rate' do
+        @metadata[:bit_rate].should be_nil
       end
 
       it 'should extract the duration in seconds' do
@@ -423,7 +423,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(23.98)
+        @metadata[:frame_rate].should eq(23.98)
       end
 
       it 'should extract the height' do
@@ -453,8 +453,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(48000)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(5006)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(5006)
       end
 
       it 'should extract the duration in seconds' do
@@ -462,7 +462,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(29.97)
+        @metadata[:frame_rate].should eq(29.97)
       end
 
       it 'should extract the height' do
@@ -478,9 +478,9 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
     end
 
-    context 'of a webm video without bitrate' do
+    context 'of a webm video without bit rate' do
       before do
-        stub(subject).process_cmd { results['webm_without_bitrate'] }
+        stub(subject).process_cmd { results['webm_without_bit_rate'] }
         @metadata = subject.data
       end
 
@@ -492,8 +492,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(44100)
       end
 
-      it 'should not extract the bitrate' do
-        @metadata[:bitrate].should be_nil
+      it 'should not extract the bit rate' do
+        @metadata[:bit_rate].should be_nil
       end
 
       it 'should extract the duration in seconds' do
@@ -501,7 +501,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(30)
+        @metadata[:frame_rate].should eq(30)
       end
 
       it 'should extract the height' do
@@ -531,8 +531,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(44100)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(504)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(504)
       end
 
       it 'should extract the duration in seconds' do
@@ -540,7 +540,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(29.97)
+        @metadata[:frame_rate].should eq(29.97)
       end
 
       it 'should extract the height' do
@@ -570,8 +570,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should be_nil
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(2101)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(2101)
       end
 
       it 'should extract the duration in seconds' do
@@ -579,7 +579,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(25.0)
+        @metadata[:frame_rate].should eq(25.0)
       end
 
       it 'should extract the height' do
@@ -609,8 +609,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(16000)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(26751)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(26751)
       end
 
       it 'should extract the duration in seconds' do
@@ -618,7 +618,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(30.0)
+        @metadata[:frame_rate].should eq(30.0)
       end
 
       it 'should extract the height' do
@@ -648,8 +648,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should be_nil
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(13983)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(13983)
       end
 
       it 'should extract the duration in seconds' do
@@ -657,7 +657,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(50.0)
+        @metadata[:frame_rate].should eq(50.0)
       end
 
       it 'should extract the height' do
@@ -687,8 +687,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(48000)
       end
 
-      it 'should extract the bitrate' do
-        @metadata[:bitrate].should eq(3342)
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(3342)
       end
 
       it 'should extract the duration in seconds' do
@@ -696,7 +696,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract frames per second' do
-        @metadata[:fps].should eq(24.0)
+        @metadata[:frame_rate].should eq(24.0)
       end
 
       it 'should extract the height' do
