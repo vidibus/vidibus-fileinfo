@@ -7,8 +7,8 @@ module Vidibus
           mxf ogg ogv rm ts webm wmv
         ]
         METADATA = %w[
-          audio_codec audio_sample_rate content_type bit_rate bitrate duration
-          fps frame_rate height size video_codec width
+          aspect_ratio audio_codec audio_sample_rate content_type bit_rate bitrate
+          duration fps frame_rate height size video_codec width
         ]
 
         # FFmpeg command
@@ -45,6 +45,22 @@ module Vidibus
 
         def content_type
           super('video')
+        end
+
+        # Return display aspect ratio defined as DAR.
+        # If no value is defined, calculate it from dimensions.
+        # If no dimensions are given, nothing is returned.
+        def aspect_ratio
+          if matches = @raw_metadata.match(/DAR\s+([0-9]+):([0-9]+)/)
+            w = $1.to_f
+            h = $2.to_f
+          elsif dimension
+            w = dimension[0].to_f
+            h = dimension[1].to_f
+          end
+          if w && h && w > 0 && h > 0
+            w/h
+          end
         end
 
         def duration

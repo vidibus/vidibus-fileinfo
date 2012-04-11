@@ -13,7 +13,7 @@ describe Vidibus::Fileinfo::Processor::Video do
 
   describe "METADATA" do
     it "should include various metadata attributes" do
-      metadata = %w[audio_codec audio_sample_rate content_type bit_rate bitrate duration fps frame_rate height size video_codec width]
+      metadata = %w[aspect_ratio audio_codec audio_sample_rate content_type bit_rate bitrate duration fps frame_rate height size video_codec width]
       Vidibus::Fileinfo::Processor::Video::METADATA.should eq(metadata)
     end
   end
@@ -86,6 +86,10 @@ describe Vidibus::Fileinfo::Processor::Video do
       it 'should extract the width' do
         @metadata[:width].should eq(720)
       end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.7778)
+      end
     end
 
     context 'of a h264 video (example 1)' do
@@ -124,6 +128,10 @@ describe Vidibus::Fileinfo::Processor::Video do
 
       it 'should extract the width' do
         @metadata[:width].should eq(720)
+      end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.77339)
       end
     end
 
@@ -164,6 +172,10 @@ describe Vidibus::Fileinfo::Processor::Video do
       it 'should extract the width' do
         @metadata[:width].should eq(620)
       end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.7714)
+      end
     end
 
     context 'of a h264 video (example 3)' do
@@ -202,6 +214,10 @@ describe Vidibus::Fileinfo::Processor::Video do
 
       it 'should extract the width' do
         @metadata[:width].should eq(620)
+      end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.7714)
       end
     end
 
@@ -242,6 +258,10 @@ describe Vidibus::Fileinfo::Processor::Video do
       it 'should extract the width' do
         @metadata[:width].should eq(620)
       end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.7714)
+      end
     end
 
     context 'of a wmv video' do
@@ -280,6 +300,10 @@ describe Vidibus::Fileinfo::Processor::Video do
 
       it 'should extract the width' do
         @metadata[:width].should eq(400)
+      end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.33333)
       end
     end
 
@@ -320,6 +344,10 @@ describe Vidibus::Fileinfo::Processor::Video do
       it 'should extract the width' do
         @metadata[:width].should eq(854)
       end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.779167)
+      end
     end
 
     context 'of an avi video without audio track' do
@@ -358,6 +386,10 @@ describe Vidibus::Fileinfo::Processor::Video do
 
       it 'should extract the width' do
         @metadata[:width].should eq(256)
+      end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.066667)
       end
     end
 
@@ -398,6 +430,10 @@ describe Vidibus::Fileinfo::Processor::Video do
       it 'should extract the width' do
         @metadata[:width].should eq(588)
       end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.235294)
+      end
     end
 
     context 'of a mkv video without bit rate' do
@@ -437,6 +473,10 @@ describe Vidibus::Fileinfo::Processor::Video do
       it 'should extract the width' do
         @metadata[:width].should eq(592)
       end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should eq(2.3125)
+      end
     end
 
     context 'of a ts video' do
@@ -475,6 +515,9 @@ describe Vidibus::Fileinfo::Processor::Video do
 
       it 'should extract the width' do
         @metadata[:width].should eq(480)
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.33333)
       end
     end
 
@@ -515,6 +558,10 @@ describe Vidibus::Fileinfo::Processor::Video do
       it 'should extract the width' do
         @metadata[:width].should eq(558)
       end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.77707)
+      end
     end
 
     context 'of an ogg video' do
@@ -553,6 +600,10 @@ describe Vidibus::Fileinfo::Processor::Video do
 
       it 'should extract the width' do
         @metadata[:width].should eq(320)
+      end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.33333)
       end
     end
 
@@ -593,6 +644,10 @@ describe Vidibus::Fileinfo::Processor::Video do
       it 'should extract the width' do
         @metadata[:width].should eq(720)
       end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.33333)
+      end
     end
 
     context 'of a mjpg video' do
@@ -631,6 +686,10 @@ describe Vidibus::Fileinfo::Processor::Video do
 
       it 'should extract the width' do
         @metadata[:width].should eq(1280)
+      end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.777778)
       end
     end
 
@@ -671,6 +730,10 @@ describe Vidibus::Fileinfo::Processor::Video do
       it 'should extract the width' do
         @metadata[:width].should eq(1920)
       end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.777778)
+      end
     end
 
     context 'of a mov video' do
@@ -709,6 +772,10 @@ describe Vidibus::Fileinfo::Processor::Video do
 
       it 'should extract the width' do
         @metadata[:width].should eq(854)
+      end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.779167)
       end
     end
 
