@@ -3,7 +3,7 @@ module Vidibus
     module Processor
       module Video
         FORMATS = %w[3g2 3gp asf avi dv f4p f4v flv ivf m21 mj2 mjpg mkv mov mp4 mpeg mpg mxf ogg ogv rm ts webm wmv]
-        METADATA = %w[audio_codec audio_sample_rate content_type bitrate duration fps height size video_codec width]
+        METADATA = %w[audio_codec audio_sample_rate content_type bitrate duration fps frame_rate height size video_codec width]
 
         # FFmpeg command
         def cmd
@@ -55,6 +55,7 @@ module Vidibus
             match.to_f
           end
         end
+        alias :frame_rate :fps
 
         def height
           dimension[1] if dimension
