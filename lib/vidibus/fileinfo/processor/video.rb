@@ -7,8 +7,8 @@ module Vidibus
           mxf ogg ogv rm ts webm wmv
         ]
         METADATA = %w[
-          aspect_ratio audio_codec audio_sample_rate content_type bit_rate bitrate
-          duration fps frame_rate height size video_codec width
+          aspect_ratio audio_codec audio_sample_rate content_type bit_rate
+          duration frame_rate height size video_codec width
         ]
 
         # FFmpeg command
@@ -45,7 +45,6 @@ module Vidibus
             (size.to_f/125/duration).round # /125 = /1000 (kB) *8 (bit)
           end
         end
-        alias :bitrate :bit_rate
 
         def content_type
           super('video')
@@ -96,7 +95,6 @@ module Vidibus
             match.to_f
           end
         end
-        alias :fps :frame_rate
 
         def height
           dimension[1] if dimension

@@ -13,7 +13,7 @@ describe Vidibus::Fileinfo::Processor::Video do
 
   describe "METADATA" do
     it "should include various metadata attributes" do
-      metadata = %w[aspect_ratio audio_codec audio_sample_rate content_type bit_rate bitrate duration fps frame_rate height size video_codec width]
+      metadata = %w[aspect_ratio audio_codec audio_sample_rate content_type bit_rate duration frame_rate height size video_codec width]
       Vidibus::Fileinfo::Processor::Video::METADATA.should eq(metadata)
     end
   end
