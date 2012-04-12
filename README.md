@@ -67,8 +67,9 @@ jpg, jpeg, png, gif
 For videos, a different hash will be returned:
 
 ``` ruby
-:width             # width of video
+:width             # width of video (without anamorphosis)
 :height            # height of video
+:aspect_ratio      # aspect ratio of video on display (DAR)
 :size              # file size in bytes
 :duration          # duration of video in seconds
 :content_type      # content type of video, e.g. "video/mp4"
