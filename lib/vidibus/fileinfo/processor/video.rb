@@ -36,9 +36,13 @@ module Vidibus
           end
         end
 
+        # Return the bit rate defined as "bitrate". Calculate it from
+        # file size and duration otherwise.
         def bit_rate
           if match = @raw_metadata[/bitrate:\s(\d+)\skb\/s/, 1]
             match.to_i
+          elsif duration && duration > 0
+            (size.to_f/125/duration).round # /125 = /1000 (kB) *8 (bit)
           end
         end
         alias :bitrate :bit_rate

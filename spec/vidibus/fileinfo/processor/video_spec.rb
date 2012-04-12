@@ -438,6 +438,7 @@ describe Vidibus::Fileinfo::Processor::Video do
 
     context 'of a mkv video without bit rate' do
       before do
+        stub(subject).size { 10000000 }
         stub(subject).process_cmd { results['mkv_without_bit_rate'] }
         @metadata = subject.data
       end
@@ -450,8 +451,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(48000)
       end
 
-      it 'should not extract the bit rate' do
-        @metadata[:bit_rate].should be_nil
+      it 'should calculate the bit rate from file size' do
+        @metadata[:bit_rate].should eq(1795)
       end
 
       it 'should extract the duration in seconds' do
@@ -524,6 +525,7 @@ describe Vidibus::Fileinfo::Processor::Video do
 
     context 'of a webm video without bit rate' do
       before do
+        stub(subject).size { 2000000 }
         stub(subject).process_cmd { results['webm_without_bit_rate'] }
         @metadata = subject.data
       end
@@ -536,8 +538,8 @@ describe Vidibus::Fileinfo::Processor::Video do
         @metadata[:audio_sample_rate].should eq(44100)
       end
 
-      it 'should not extract the bit rate' do
-        @metadata[:bit_rate].should be_nil
+      it 'should calculate the bit rate from file size' do
+        @metadata[:bit_rate].should eq(2878)
       end
 
       it 'should extract the duration in seconds' do
