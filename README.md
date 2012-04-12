@@ -74,7 +74,7 @@ For videos, a different hash will be returned:
 :duration          # duration of video in seconds
 :content_type      # content type of video, e.g. "video/mp4"
 :fps               # frames per second
-:bitrate           # overall bit rate (video + audio)
+:bitrate           # overall bit rate (video + audio) in bit
 :video_codec       # codec of video stream, e.g. "h264"
 :audio_codec       # codec of audio stream, e.g. "aac"
 :audio_sample_rate # sample rate of audio stream, e.g. 48000
