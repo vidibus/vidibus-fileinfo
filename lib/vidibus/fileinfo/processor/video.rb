@@ -40,9 +40,9 @@ module Vidibus
         # file size and duration otherwise.
         def bit_rate
           if match = @raw_metadata[/bitrate:\s(\d+)\skb\/s/, 1]
-            match.to_i
+            match.to_i * 1024
           elsif duration && duration > 0
-            (size.to_f/125/duration).round # /125 = /1000 (kB) *8 (bit)
+            (size.to_f/duration*8).round
           end
         end
 

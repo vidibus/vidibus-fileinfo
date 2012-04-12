@@ -64,7 +64,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(602)
+        @metadata[:bit_rate].should eq(616448)
       end
 
       it 'should extract the duration in seconds' do
@@ -107,7 +107,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(1136)
+        @metadata[:bit_rate].should eq(1163264)
       end
 
       it 'should extract the duration in seconds' do
@@ -150,7 +150,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(1098)
+        @metadata[:bit_rate].should eq(1124352)
       end
 
       it 'should extract the duration in seconds' do
@@ -193,7 +193,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(951)
+        @metadata[:bit_rate].should eq(973824)
       end
 
       it 'should extract the duration in seconds' do
@@ -236,7 +236,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(953)
+        @metadata[:bit_rate].should eq(975872)
       end
 
       it 'should extract the duration in seconds' do
@@ -279,7 +279,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(699)
+        @metadata[:bit_rate].should eq(715776)
       end
 
       it 'should extract the duration in seconds' do
@@ -322,7 +322,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(2099)
+        @metadata[:bit_rate].should eq(2149376)
       end
 
       it 'should extract the duration in seconds' do
@@ -365,7 +365,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(1071)
+        @metadata[:bit_rate].should eq(1096704)
       end
 
       it 'should extract the duration in seconds' do
@@ -408,7 +408,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(128)
+        @metadata[:bit_rate].should eq(131072)
       end
 
       it 'should extract the duration in seconds' do
@@ -452,7 +452,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should calculate the bit rate from file size' do
-        @metadata[:bit_rate].should eq(1795)
+        @metadata[:bit_rate].should eq(1794527)
       end
 
       it 'should extract the duration in seconds' do
@@ -495,7 +495,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(5006)
+        @metadata[:bit_rate].should eq(5126144)
       end
 
       it 'should extract the duration in seconds' do
@@ -539,7 +539,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should calculate the bit rate from file size' do
-        @metadata[:bit_rate].should eq(2878)
+        @metadata[:bit_rate].should eq(2877698)
       end
 
       it 'should extract the duration in seconds' do
@@ -582,7 +582,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(504)
+        @metadata[:bit_rate].should eq(516096)
       end
 
       it 'should extract the duration in seconds' do
@@ -625,7 +625,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(2101)
+        @metadata[:bit_rate].should eq(2151424)
       end
 
       it 'should extract the duration in seconds' do
@@ -668,7 +668,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(26751)
+        @metadata[:bit_rate].should eq(27393024)
       end
 
       it 'should extract the duration in seconds' do
@@ -711,7 +711,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(13983)
+        @metadata[:bit_rate].should eq(14318592)
       end
 
       it 'should extract the duration in seconds' do
@@ -754,7 +754,7 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(3342)
+        @metadata[:bit_rate].should eq(3422208)
       end
 
       it 'should extract the duration in seconds' do
