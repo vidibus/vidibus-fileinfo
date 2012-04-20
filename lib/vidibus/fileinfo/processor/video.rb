@@ -67,11 +67,11 @@ module Vidibus
           end
         end
 
-        # Return pixel aspect ratio defined as PAR.
+        # Return pixel aspect ratio defined as PAR or SAR.
         # If no value is defined, 1.0 will be returned.
         def pixel_aspect_ratio
           ar = 1.0
-          if matches = @raw_metadata.match(/PAR\s+([0-9]+):([0-9]+)/)
+          if matches = @raw_metadata.match(/(?:P|S)AR\s+([0-9]+):([0-9]+)/)
             w = $1.to_f
             h = $2.to_f
             if w > 0 && h > 0

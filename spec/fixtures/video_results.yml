@@ -400,3 +400,36 @@ invalid_data: |
     libswscale    2.  0. 0 /  2.  0. 0
     libpostproc  51.  2. 0 / 51.  2. 0
   Invalid.mp4: Invalid data found when processing input
+
+mpg_anamorphic: |
+  ffmpeg version N-31981-g909e0fe, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 19 2011 04:57:01 with gcc 4.6.1 20110608 (prerelease)
+    configuration: --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-libgsm --enable-postproc --enable-libxvid --enable-libfaac --enable-pthreads --enable-libvorbis --enable-gpl --enable-x11grab --enable-nonfree
+    libavutil    51. 12. 0 / 51. 12. 0 20 14:25 tmp
+    libavcodec   53. 11. 0 / 53. 11. 0
+    libavformat  53.  8. 0 / 53.  8. 0 ffmpeg -i "whatever.mpg" -acodec libfa  libavdevice  53.  3. 0 / 53.  3. 0odec libx264 -s 720x576 -aspect 1.25 -vb 1400000 -r 25 -g 100 -keyint_min 100 -vprofile main -vlevel 3.1 -coder 1 -flags +  libavfilter   2. 32. 0 /  2. 32. 08x8+parti4x4+partp8x8+partb8x8 -me_method hex -subq 7 -i_qfactor 0.71 -directpred 1 -flags2 +wpred+fastpskip-dct8x8 -y -th  libswscale    2.  0. 0 /  2.  0. 0c06d1b012f48466c62
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [mpeg @ 0x29db460] max_analyze_duration 5000000 reached at 5000000
+  Input #0, mpeg, from '/var/www/manager/releases/20120420132831/protected/uploads/a573f1a06d11012f482a6c626d58b44c.mpg':
+    Duration: 00:01:45.84, start: 0.205256, bitrate: 6300 kb/s
+      Stream #0.0[0x1e0]: Video: mpeg2video (Main), yuv420p, 720x576 [SAR 64:45 DAR 16:9], 8000 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc
+      Stream #0.1[0x1c0]: Audio: mp2, 48000 Hz, stereo, s16, 224 kb/s
+  /tmp/vidibus-encoder/2e106ac06d1b012f48466c626d58b44c/a573f1a06d11012f482a6c626d58b44c-w768.mp4: No such file or directory
+  deploy@v1:/var/www/uploader/current$ mkdir -p /tmp/vidibus-encoder/2e106ac06d1b012f48466c626d58b44c/
+  deploy@v1:/var/www/uploader/current$ ffmpeg -i /var/www/manager/releases/20120420132831/protected/uploads/a573f1a06d11012f482a6c626d58b44c.mpg
+  ffmpeg version N-31981-g909e0fe, Copyright (c) 2000-2011 the FFmpeg developers
+    built on Aug 19 2011 04:57:01 with gcc 4.6.1 20110608 (prerelease)
+    configuration: --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-libgsm --enable-postproc --enable-libxvid --enable-libfaac --enable-pthreads --enable-libvorbis --enable-gpl --enable-x11grab --enable-nonfree
+    libavutil    51. 12. 0 / 51. 12. 0
+    libavcodec   53. 11. 0 / 53. 11. 0
+    libavformat  53.  8. 0 / 53.  8. 0
+    libavdevice  53.  3. 0 / 53.  3. 0
+    libavfilter   2. 32. 0 /  2. 32. 0
+    libswscale    2.  0. 0 /  2.  0. 0
+    libpostproc  51.  2. 0 / 51.  2. 0
+  [mpeg @ 0x13c6460] max_analyze_duration 5000000 reached at 5000000
+  Input #0, mpeg, from '/var/www/manager/releases/20120420132831/protected/uploads/a573f1a06d11012f482a6c626d58b44c.mpg':
+    Duration: 00:01:45.84, start: 0.205256, bitrate: 6300 kb/s
+      Stream #0.0[0x1e0]: Video: mpeg2video (Main), yuv420p, 720x576 [SAR 64:45 DAR 16:9], 8000 kb/s, 25 fps, 25 tbr, 90k tbn, 50 tbc
+      Stream #0.1[0x1c0]: Audio: mp2, 48000 Hz, stereo, s16, 224 kb/s
+  At least one output file must be specified
