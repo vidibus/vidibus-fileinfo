@@ -6,7 +6,7 @@ describe Vidibus::Fileinfo::Processor::Video do
 
   describe "FORMATS" do
     it "should include various video formats" do
-      formats = %w[3g2 3gp asf avi dv f4p f4v flv ivf m21 mj2 mjpg mkv mov mp4 mpeg mpg mxf ogg ogv rm ts webm wmv]
+      formats = %w[3g2 3gp asf avi dv f4p f4v flv ivf m21 mj2 mjpg mkv mov mp4 mpeg mpg mts mxf ogg ogv rm ts webm wmv]
       Vidibus::Fileinfo::Processor::Video::FORMATS.should eq(formats)
     end
   end
@@ -822,6 +822,50 @@ describe Vidibus::Fileinfo::Processor::Video do
 
       it 'should extract the aspect ratio' do
         @metadata[:aspect_ratio].should be_within(0.0001).of(1.7778)
+      end
+    end
+
+    context 'of a mts video' do
+      before do
+        stub(subject).size { 2000000 }
+        stub(subject).process_cmd { results['mts'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('ac3')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(48000)
+      end
+
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(15815000)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(254.91)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:frame_rate].should eq(50)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(1080)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('h264 (High)')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(1920)
+      end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.77778)
       end
     end
 

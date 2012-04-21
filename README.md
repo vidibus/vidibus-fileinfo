@@ -84,7 +84,7 @@ These video formats are currently supported:
 
 ```
 3g2, 3gp, asf, avi, dv, f4p, f4v, flv, ivf, m21, mj2, mjpg, mkv, mov, mp4,
-mpeg, mpg, mxf, ogg, ogv, rm, ts, webm, wmv
+mpeg, mpg, mts, mxf, ogg, ogv, rm, ts, webm, wmv
 ```
 
 ## Copyright

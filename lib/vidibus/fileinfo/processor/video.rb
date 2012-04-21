@@ -4,7 +4,7 @@ module Vidibus
       module Video
         FORMATS = %w[
           3g2 3gp asf avi dv f4p f4v flv ivf m21 mj2 mjpg mkv mov mp4 mpeg mpg
-          mxf ogg ogv rm ts webm wmv
+          mts mxf ogg ogv rm ts webm wmv
         ]
         METADATA = %w[
           aspect_ratio audio_codec audio_sample_rate content_type bit_rate
