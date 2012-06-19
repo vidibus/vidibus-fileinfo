@@ -9,12 +9,6 @@ require "vidibus/fileinfo/version"
 
 Bundler::GemHelper.install_tasks
 
-RSpec::Core::RakeTask.new(:rcov) do |t|
-  t.pattern = "spec/**/*_spec.rb"
-  t.rcov = true
-  t.rcov_opts = ["--exclude", "^spec,/gems/"]
-end
-
 Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_dir = "rdoc"
   rdoc.title = "vidibus-fileinfo #{Vidibus::Fileinfo::VERSION}"
@@ -23,4 +17,3 @@ Rake::RDocTask.new do |rdoc|
   rdoc.options << "--charset=utf-8"
 end
 
-task :default => :rcov
