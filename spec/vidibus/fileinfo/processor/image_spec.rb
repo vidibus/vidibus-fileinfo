@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe Vidibus::Fileinfo::Processor::Image do
   let(:subject) {Vidibus::Fileinfo::Base.new(jpg_path)}
+  let(:results) {load_fixture('image_results')}
 
   describe "FORMATS" do
     it "should include various image formats" do
@@ -30,6 +31,25 @@ describe Vidibus::Fileinfo::Processor::Image do
     it "should raise an error if width is 0" do
       stub(subject).width {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
+    end
+
+    context 'of a jfif image' do
+      before do
+        stub(subject).process_cmd { results['jfif'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the bit depth' do
+        @metadata[:bit].should eq(8)
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(1280)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(720)
+      end
     end
   end
 

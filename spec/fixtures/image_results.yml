@@ -1,0 +1,94 @@
+jfif: |
+  Image: jfif.jpg
+    Format: JPEG (Joint Photographic Experts Group JFIF format)
+    Class: DirectClass
+    Geometry: 1280x720+0+0
+    Resolution: 72.009x72.009
+    Print size: 17.7756x9.99875
+    Units: PixelsPerInch
+    Type: TrueColor
+    Endianess: Undefined
+    Colorspace: RGB
+    Depth: 8-bit
+    Channel depth:
+      red: 8-bit
+      green: 8-bit
+      blue: 8-bit
+    Channel statistics:
+      Red:
+        min: 0 (0)
+        max: 255 (1)
+        mean: 118.839 (0.466034)
+        standard deviation: 71.7634 (0.281425)
+        kurtosis: -1.12314
+        skewness: 0.0969102
+      Green:
+        min: 0 (0)
+        max: 255 (1)
+        mean: 96.2894 (0.377605)
+        standard deviation: 69.6717 (0.273222)
+        kurtosis: -0.781288
+        skewness: 0.653967
+      Blue:
+        min: 0 (0)
+        max: 255 (1)
+        mean: 75.5466 (0.296261)
+        standard deviation: 60.6202 (0.237726)
+        kurtosis: 0.697798
+        skewness: 1.11169
+    Image statistics:
+      Overall:
+        min: 0 (0)
+        max: 255 (1)
+        mean: 96.8915 (0.379967)
+        standard deviation: 67.5252 (0.264805)
+        kurtosis: -0.453303
+        skewness: 0.650098
+    Rendering intent: Undefined
+    Interlace: None
+    Background color: white
+    Border color: rgb(223,223,223)
+    Matte color: grey74
+    Transparent color: black
+    Compose: Over
+    Page geometry: 1280x720+0+0
+    Dispose: Undefined
+    Iterations: 0
+    Compression: JPEG
+    Quality: 97
+    Orientation: TopLeft
+    Properties:
+      date:create: 2012-05-18T17:39:02+02:00
+      date:modify: 2012-05-18T17:39:02+02:00
+      exif:ColorSpace: 1
+      exif:Compression: 6
+      exif:DateTime: 2012:05:18 15:21:11
+      exif:ExifImageLength: 720
+      exif:ExifImageWidth: 1280
+      exif:ExifOffset: 164
+      exif:JPEGInterchangeFormat: 302
+      exif:JPEGInterchangeFormatLength: 6039
+      exif:Orientation: 1
+      exif:ResolutionUnit: 2
+      exif:Software: Adobe Photoshop CS3 Windows
+      exif:XResolution: 720090/10000
+      exif:YResolution: 720090/10000
+      jpeg:colorspace: 2
+      jpeg:sampling-factor: 1x1,1x1,1x1
+      signature: 8c6214d9afe6dace24b2a4fcfef92834d437f2a86ff0ddb7f657f9a87837cb73
+      xapMM:DerivedFrom: 
+    Profiles:
+      Profile-8bim: 7718 bytes
+      Profile-exif: 6347 bytes
+      Profile-icc: 3144 bytes
+        IEC 61966-2.1 Default RGB colour space - sRGB
+      Profile-xmp: 3866 bytes
+    Artifacts:
+      verbose: true
+    Tainted: False
+    Filesize: 394KBB
+    Number pixels: 922KB
+    Pixels per second: 23.04MB
+    User time: 0.040u
+    Elapsed time: 0:01.039
+    Version: ImageMagick 6.6.9-4 2011-06-18 Q16 http://www.imagemagick.org
