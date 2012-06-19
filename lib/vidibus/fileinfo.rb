@@ -54,11 +54,11 @@ module Vidibus
           size = $1.to_f
           unit = $2.strip.upcase if $2
           power = case unit
-            when "B", ""  : 0
-            when "K", "KB": 1
-            when "M", "MB": 2
-            when "G", "GB": 3
-            when "T", "TB": 4
+            when "B", ""   then 0
+            when "K", "KB" then 1
+            when "M", "MB" then 2
+            when "G", "GB" then 3
+            when "T", "TB" then 4
             else raise UnitError
           end
           factor = 1024**power
