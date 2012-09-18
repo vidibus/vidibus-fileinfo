@@ -869,6 +869,50 @@ describe Vidibus::Fileinfo::Processor::Video do
       end
     end
 
+    context 'of a Quicktime mp4 video' do
+      before do
+        stub(subject).size { 2000000 }
+        stub(subject).process_cmd { results['qt_mp4'] }
+        @metadata = subject.data
+      end
+
+      it 'should extract the audio codec' do
+        @metadata[:audio_codec].should eq('aac')
+      end
+
+      it 'should extract the audio sample rate' do
+        @metadata[:audio_sample_rate].should eq(48000)
+      end
+
+      it 'should extract the bit rate' do
+        @metadata[:bit_rate].should eq(1136000)
+      end
+
+      it 'should extract the duration in seconds' do
+        @metadata[:duration].should eq(44.72)
+      end
+
+      it 'should extract frames per second' do
+        @metadata[:frame_rate].should eq(25)
+      end
+
+      it 'should extract the height' do
+        @metadata[:height].should eq(406)
+      end
+
+      it 'should extract the video codec' do
+        @metadata[:video_codec].should eq('h264 (High)')
+      end
+
+      it 'should extract the width' do
+        @metadata[:width].should eq(720)
+      end
+
+      it 'should extract the aspect ratio' do
+        @metadata[:aspect_ratio].should be_within(0.0001).of(1.7733)
+      end
+    end
+
     it "should raise DataError if metadata is invalid" do
       stub(subject).process_cmd {results["invalid_data"]}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)

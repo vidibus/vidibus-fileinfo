@@ -27,7 +27,7 @@ module Vidibus
         protected
 
         def audio_codec
-          @raw_metadata[/Audio:\s+([a-z0-9_]+),.*\d+\sHz/, 1]
+          @raw_metadata[/Audio:\s+([a-z0-9_]+).*,.*\d+\sHz/, 1]
         end
 
         def audio_sample_rate
@@ -120,7 +120,7 @@ module Vidibus
         end
 
         def video_codec
-          if codec = @raw_metadata[/Video:\s*([a-zA-Z0-9\s\(\)]*)[\s\/,]+/, 1]
+          if codec = @raw_metadata[/Video:\s*([a-zA-Z0-9]*(?:\s*\([a-zA-Z ]+\))?)[\s\/,]+/, 1]
             codec.strip
           end
         end
