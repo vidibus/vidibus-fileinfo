@@ -87,6 +87,25 @@ These video formats are currently supported:
 mpeg, mpg, mts, mxf, ogg, ogv, rm, ts, webm, wmv
 ```
 
+### Audio files
+
+For audio files the dataset looks as follows:
+
+``` ruby
+:size         # file size in bytes, eg. 20883991
+:duration     # duration of video in seconds, e.g. 44.82
+:content_type # content type of video, e.g. "audio/mpeg"
+:bit_rate     # bit rate in bit, e.g. 600000
+:codec        # codec of audio stream, e.g. "aac"
+:sample_rate  # sample rate of audio stream, e.g. 48000
+```
+
+These audio formats are currently supported:
+
+```
+mp3
+```
+
 ## Copyright
 
-Copyright (c) 2011-2012 Andre Pankratz. See LICENSE for details.
+Copyright (c) 2011-2013 Andre Pankratz. See LICENSE for details.
