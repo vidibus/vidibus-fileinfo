@@ -1,0 +1,21 @@
+mp3: |
+  ffmpeg version N-39808-g271f959 Copyright (c) 2000-2013 the FFmpeg developers
+    built on Mar 20 2013 14:08:40 with gcc 4.4.5 (Debian 4.4.5-8)
+    configuration: --enable-libmp3lame --enable-libtheora --enable-libx264 --enable-postproc --enable-libxvid --enable-libfaac --enable-pthreads --enable-libvorbis --enable-gpl --enable-nonfree --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-version3 --enable-libvpx --enable-librtmp
+    libavutil      52. 21.100 / 52. 21.100
+    libavcodec     55.  1.100 / 55.  1.100
+    libavformat    55.  0.100 / 55.  0.100
+    libavdevice    55.  0.100 / 55.  0.100
+    libavfilter     3. 47.104 /  3. 47.104
+    libswscale      2.  2.100 /  2.  2.100
+    libswresample   0. 17.102 /  0. 17.102
+    libpostproc    52.  2.100 / 52.  2.100
+  [mp3 @ 0x25c1a60] max_analyze_duration 5000000 reached at 5015510 microseconds
+  Input #0, mp3, from 'part1.mp3':
+    Metadata:
+      major_brand     : isom
+      minor_version   : 512
+      compatible_brands: isomiso2avc1mp41
+      encoder         : Lavf55.0.100
+    Duration: 00:00:34.25, start: 0.000000, bitrate: 95 kb/s
+      Stream #0:0: Audio: mp3, 44100 Hz, stereo, s16p, 96 kb/s

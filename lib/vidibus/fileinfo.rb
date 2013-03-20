@@ -1,6 +1,7 @@
 require "vidibus/fileinfo/base"
 require "vidibus/fileinfo/processor/image"
 require "vidibus/fileinfo/processor/video"
+require "vidibus/fileinfo/processor/audio"
 
 module Vidibus
   module Fileinfo
@@ -19,7 +20,7 @@ module Vidibus
 
       # Returns a list of available processors.
       def processors
-        @processors ||= [Processor::Image, Processor::Video]
+        @processors ||= [Processor::Image, Processor::Video, Processor::Audio]
       end
 
       # Returns a list of processable formats.

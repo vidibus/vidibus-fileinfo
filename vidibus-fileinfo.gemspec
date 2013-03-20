@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = "Andre Pankratz"
   s.email       = "andre@vidibus.com"
   s.homepage    = "https://github.com/vidibus/vidibus-fileinfo"
-  s.summary     = "Returns information about an image or video file."
-  s.description = "Returns information like the width, height and bits about an image or video file."
+  s.summary     = "Returns information about an image, video or audio file."
+  s.description = "Returns information like the width, height and bits about an image, video or audio file."
 
   s.required_rubygems_version = ">= 1.3.6"
 

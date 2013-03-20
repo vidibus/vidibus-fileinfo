@@ -6,13 +6,13 @@ describe Vidibus::Fileinfo do
 
   describe ".processors" do
     it "should return a list of available processor classes" do
-      subject.processors.should eql([Vidibus::Fileinfo::Processor::Image, Vidibus::Fileinfo::Processor::Video])
+      subject.processors.should eql([Vidibus::Fileinfo::Processor::Image, Vidibus::Fileinfo::Processor::Video, Vidibus::Fileinfo::Processor::Audio])
     end
   end
 
   describe ".formats" do
     it "should return a list of processable file formats" do
-      subject.formats.should eql(%w[3g2 3gp asf avi dv f4p f4v flv gif ivf jpeg jpg m21 mj2 mjpg mkv mov mp4 mpeg mpg mts mxf ogg ogv png rm ts webm wmv])
+      subject.formats.should eql(%w[3g2 3gp asf avi dv f4p f4v flv gif ivf jpeg jpg m21 mj2 mjpg mkv mov mp3 mp4 mpeg mpg mts mxf ogg ogv png rm ts webm wmv])
     end
   end
 
