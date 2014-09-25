@@ -50,7 +50,7 @@ module Vidibus
       end
 
       def parse_metadata
-        @raw_metadata = process_cmd
+        @raw_metadata = process_cmd.force_encoding('ISO8859-1')
         metadata = {}
         @processor::METADATA.each do |attribute|
           if data = send(attribute)
