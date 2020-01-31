@@ -37,6 +37,17 @@ module Vidibus
         @data ||= parse_metadata
       end
 
+      def video?
+        false
+      end
+
+      def audio?
+        false
+      end
+
+      def image?
+        false
+      end
       protected
 
       def check_file

@@ -22,6 +22,10 @@ module Vidibus
           %w[duration]
         end
 
+        def audio?
+          true
+        end
+
         protected
 
         def codec

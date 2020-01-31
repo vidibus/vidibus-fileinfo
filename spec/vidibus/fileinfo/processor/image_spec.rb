@@ -17,6 +17,24 @@ describe Vidibus::Fileinfo::Processor::Image do
     end
   end
 
+  describe "#audio?" do
+    it "returns false" do
+      subject.audio?.should be_false
+    end
+  end
+
+  describe "#video?" do
+    it "returns false" do
+      subject.video?.should be_false
+    end
+  end
+
+  describe "#image?" do
+    it "returns true" do
+      subject.image?.should be_true
+    end
+  end
+
   describe "#data" do
     it "should require @path to be defined" do
       subject.instance_variable_set("@path", nil)

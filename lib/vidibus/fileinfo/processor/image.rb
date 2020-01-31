@@ -18,6 +18,10 @@ module Vidibus
           %w[height width]
         end
 
+        def image?
+          true
+        end
+
         protected
 
         def bit
