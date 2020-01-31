@@ -7,38 +7,38 @@ describe Vidibus::Fileinfo::Processor::Audio do
   describe "FORMATS" do
     it "should include various video formats" do
       formats = %w[mp3]
-      Vidibus::Fileinfo::Processor::Audio::FORMATS.should eq(formats)
+      expect(Vidibus::Fileinfo::Processor::Audio::FORMATS).to eq(formats)
     end
   end
 
   describe "METADATA" do
     it "should include various metadata attributes" do
       metadata = %w[codec sample_rate content_type bit_rate duration]
-      Vidibus::Fileinfo::Processor::Audio::METADATA.should eq(metadata)
+      expect(Vidibus::Fileinfo::Processor::Audio::METADATA).to eq(metadata)
     end
   end
 
   describe "#process_cmd" do
     it "should return raw metadata from an audio file" do
-      subject.data.should_not be_empty
+      expect(subject.data).not_to be_empty
     end
   end
 
   describe "#audio?" do
     it "returns true" do
-      subject.audio?.should be_true
+      expect(subject.audio?).to be_truthy
     end
   end
 
   describe "#video?" do
     it "returns false" do
-      subject.video?.should be_false
+      expect(subject.video?).to be_falsey
     end
   end
 
   describe "#image?" do
     it "returns false" do
-      subject.image?.should be_false
+      expect(subject.image?).to be_falsey
     end
   end
 
@@ -49,34 +49,34 @@ describe Vidibus::Fileinfo::Processor::Audio do
     end
 
     it 'should raise a DataError if "duration" validation fails' do
-      stub(subject).duration {0}
-      expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
+      allow(subject).to receive(:duration) { 0 }
+      expect { subject.data }.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
     it 'should include the content_type' do
-      subject.data[:content_type].should eql('audio/mpeg')
+      expect(subject.data[:content_type]).to eql('audio/mpeg')
     end
 
     context 'of a mp3 file' do
       before do
-        stub(subject).process_cmd { results['mp3'] }
+        allow(subject).to receive(:process_cmd) { results['mp3'] }
         @metadata = subject.data
       end
 
       it 'should extract the codec' do
-        @metadata[:codec].should eq('mp3')
+        expect(@metadata[:codec]).to eq('mp3')
       end
 
       it 'should extract the audio sample rate' do
-        @metadata[:sample_rate].should eq(44100)
+        expect(@metadata[:sample_rate]).to eq(44100)
       end
 
       it 'should extract the bit rate' do
-        @metadata[:bit_rate].should eq(95000)
+        expect(@metadata[:bit_rate]).to eq(95000)
       end
 
       it 'should extract the duration in seconds' do
-        @metadata[:duration].should eq(34.25)
+        expect(@metadata[:duration]).to eq(34.25)
       end
     end
   end
@@ -90,9 +90,9 @@ describe Vidibus::Fileinfo::Processor::Audio do
 
     Vidibus::Fileinfo::Processor::Audio::FORMATS.each do |format|
       it "should be valid for '#{format}'" do
-        stub(subject).path { "something.#{format}" }
-        stub(subject).format { format }
-        subject.send(:content_type).should eq(mime_types[format])
+        allow(subject).to receive(:path) { "something.#{format}" }
+        allow(subject).to receive(:format) { format }
+        expect(subject.send(:content_type)).to eq(mime_types[format])
       end
     end
   end

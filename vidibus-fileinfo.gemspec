@@ -19,13 +19,11 @@ Gem::Specification.new do |s|
   s.add_dependency "posix-spawn"
   s.add_dependency "vidibus-core_extensions"
 
-  s.add_development_dependency "bundler", ">= 1.0.0"
-  s.add_development_dependency "rspec", "~> 2"
-  s.add_development_dependency "rr"
+  s.add_development_dependency "bundler"
+  s.add_development_dependency "rspec", "> 2.99.0"
   s.add_development_dependency "rake"
   s.add_development_dependency "rdoc"
   s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'transpec'
 
   s.files = Dir.glob("{lib,app,config}/**/*") + %w[LICENSE README.md Rakefile]
   s.require_path = "lib"

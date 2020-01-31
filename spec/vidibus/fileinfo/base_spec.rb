@@ -29,58 +29,58 @@ describe Vidibus::Fileinfo::Base do
     end
 
     it "should pass if file is valid" do
-      subject.new(jpg_path).should be_true
+      expect(subject.new(jpg_path)).to be_truthy
     end
 
     it "should allow access to the processor's methods" do
-      jpg_info.should respond_to(:data)
+      expect(jpg_info).to respond_to(:data)
     end
   end
 
   describe "#format" do
     it "should return the current file's format" do
-      mock(Vidibus::Fileinfo).format(jpg_path) {"jpg"}
+      allow(Vidibus::Fileinfo).to receive(:format).with(jpg_path) {"jpg"}
       jpg_info.format
     end
   end
 
   describe "#mime_type" do
     it "should return the current file's mime type" do
-      jpg_info.mime_type.should eq('image/jpeg')
+      expect(jpg_info.mime_type).to eq('image/jpeg')
     end
 
     it 'should return the wanted media type "video"' do
-      stub(jpg_info).path { 'something.mp4' }
-      stub(jpg_info).format { 'mp4' }
-      jpg_info.mime_type('video').should eq('video/mp4')
+      allow(jpg_info).to receive(:path) { 'something.mp4' }
+      allow(jpg_info).to receive(:format) { 'mp4' }
+      expect(jpg_info.mime_type('video')).to eq('video/mp4')
     end
 
     it 'should return the wanted media type "audio"' do
-      stub(jpg_info).path { 'something.mp4' }
-      stub(jpg_info).format { 'mp4' }
-      jpg_info.mime_type('audio').should eq('audio/mp4')
+      allow(jpg_info).to receive(:path) { 'something.mp4' }
+      allow(jpg_info).to receive(:format) { 'mp4' }
+      expect(jpg_info.mime_type('audio')).to eq('audio/mp4')
     end
 
     it 'should return alternative if wanted media type is not available' do
-      stub(jpg_info).path { 'something.rm' }
-      stub(jpg_info).format { 'rm' }
-      jpg_info.mime_type('video').should eq('application/vnd.rn-realmedia')
+      allow(jpg_info).to receive(:path) { 'something.rm' }
+      allow(jpg_info).to receive(:format) { 'rm' }
+      expect(jpg_info.mime_type('video')).to eq('application/vnd.rn-realmedia')
     end
 
     it 'should be aliased as #content_type' do
-      jpg_info.send(:content_type).should eq('image/jpeg')
+      expect(jpg_info.send(:content_type)).to eq('image/jpeg')
     end
   end
 
   describe "#path" do
     it "should return the current file's path" do
-      jpg_info.path.should eql(jpg_path)
+      expect(jpg_info.path).to eql(jpg_path)
     end
   end
 
   describe "#processor" do
     it "should return the matching processor for given file" do
-      jpg_info.processor.should eql(Vidibus::Fileinfo::Processor::Image)
+      expect(jpg_info.processor).to eql(Vidibus::Fileinfo::Processor::Image)
     end
   end
 end

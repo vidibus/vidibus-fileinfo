@@ -6,32 +6,32 @@ describe Vidibus::Fileinfo::Processor::Image do
 
   describe "FORMATS" do
     it "should include various image formats" do
-      Vidibus::Fileinfo::Processor::Image::FORMATS.should eql(%w[jpg jpeg png gif])
+      expect(Vidibus::Fileinfo::Processor::Image::FORMATS).to eql(%w[jpg jpeg png gif])
     end
   end
 
   describe "METADATA" do
     it "should include various metadata attributes" do
       metadata = %w[bit content_type height orientation quality size width]
-      Vidibus::Fileinfo::Processor::Image::METADATA.should eq(metadata)
+      expect(Vidibus::Fileinfo::Processor::Image::METADATA).to eq(metadata)
     end
   end
 
   describe "#audio?" do
     it "returns false" do
-      subject.audio?.should be_false
+      expect(subject.audio?).to be_falsey
     end
   end
 
   describe "#video?" do
     it "returns false" do
-      subject.video?.should be_false
+      expect(subject.video?).to be_falsey
     end
   end
 
   describe "#image?" do
     it "returns true" do
-      subject.image?.should be_true
+      expect(subject.image?).to be_truthy
     end
   end
 
@@ -42,38 +42,38 @@ describe Vidibus::Fileinfo::Processor::Image do
     end
 
     it "should raise an error if height is 0" do
-      stub(subject).height {0}
+      allow(subject).to receive(:height) {0}
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
     it "should raise an error if width is 0" do
-      stub(subject).width {0}
+      allow(subject).to receive(:width) { 0 }
       expect {subject.data}.to raise_error(Vidibus::Fileinfo::DataError)
     end
 
     context 'of a jfif image' do
       before do
-        stub(subject).process_cmd { results['jfif'] }
+        allow(subject).to receive(:process_cmd) { results['jfif'] }
         @metadata = subject.data
       end
 
       it 'should extract the bit depth' do
-        @metadata[:bit].should eq(8)
+        expect(@metadata[:bit]).to eq(8)
       end
 
       it 'should extract the width' do
-        @metadata[:width].should eq(1280)
+        expect(@metadata[:width]).to eq(1280)
       end
 
       it 'should extract the height' do
-        @metadata[:height].should eq(720)
+        expect(@metadata[:height]).to eq(720)
       end
     end
   end
 
   describe "#process_cmd" do
     it "should return raw metadata from an image" do
-      subject.data.should_not be_empty
+      expect(subject.data).not_to be_empty
     end
   end
 
@@ -87,6 +87,6 @@ describe Vidibus::Fileinfo::Processor::Image do
       :quality => 92,
       :size => 37958
     }
-    subject.data.should eq(metadata)
+    expect(subject.data).to eq(metadata)
   end
 end
