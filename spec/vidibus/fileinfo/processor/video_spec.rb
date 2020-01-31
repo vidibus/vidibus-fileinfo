@@ -957,6 +957,7 @@ describe Vidibus::Fileinfo::Processor::Video do
         'mpeg' => 'video/mpeg',
         'mpg' => 'video/mpeg',
         'mxf' => 'application/mxf',
+        "mts" => "video/mts",
         'ogg' => 'video/ogg',
         'ogv' => 'video/ogg',
         'rm' => 'application/vnd.rn-realmedia',
