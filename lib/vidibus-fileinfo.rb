@@ -1,6 +1,5 @@
 require 'yaml'
 require 'mime/types'
-require 'posix/spawn'
+require 'open3'
 require 'vidibus-core_extensions'
-
 require 'vidibus/fileinfo'

@@ -8,6 +8,7 @@ require "rubygems"
 require "rspec"
 require "rr"
 require "vidibus-fileinfo"
+require 'yaml'
 
 require "support/stubs"
 require "support/files"
@@ -15,4 +16,5 @@ require "support/fixture"
 
 RSpec.configure do |config|
   config.mock_with :rr
+  config.include RR::DSL
 end

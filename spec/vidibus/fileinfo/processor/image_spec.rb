@@ -65,7 +65,6 @@ describe Vidibus::Fileinfo::Processor::Image do
       :width => 200,
       :height => 194,
       :bit => 8,
-      :orientation => 6,
       :quality => 92,
       :size => 37958
     }

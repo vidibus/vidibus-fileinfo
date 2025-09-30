@@ -1,3 +1,5 @@
+require 'open3'
+
 module Vidibus
   module Fileinfo
     class Base
@@ -62,10 +64,8 @@ module Vidibus
       end
 
       def process_cmd
-        pid, stdin, stdout, stderr = POSIX::Spawn::popen4(cmd)
-        raw_metadata = eval(output).read
-        Process::waitpid(pid)
-        raw_metadata
+        stdout, stderr, status = Open3.capture3(cmd)
+        eval(output)
       end
 
       # Important attributes must be present and valid

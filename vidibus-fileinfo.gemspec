@@ -15,12 +15,11 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = ">= 1.3.6"
 
-  s.add_dependency "mime-types"
-  s.add_dependency "posix-spawn"
+  s.add_dependency "mime-types", '>= 3'
   s.add_dependency "vidibus-core_extensions"
 
   s.add_development_dependency "bundler", ">= 1.0.0"
-  s.add_development_dependency "rspec", "~> 2"
+  s.add_development_dependency "rspec"#, "~> 2"
   s.add_development_dependency "rr"
   s.add_development_dependency "rake"
   s.add_development_dependency "rdoc"

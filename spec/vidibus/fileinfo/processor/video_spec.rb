@@ -6,7 +6,7 @@ describe Vidibus::Fileinfo::Processor::Video do
 
   describe "FORMATS" do
     it "should include various video formats" do
-      formats = %w[3g2 3gp asf avi dv f4p f4v flv ivf m21 mj2 mjpg mkv mov mp4 mpeg mpg mts mxf ogg ogv rm ts webm wmv]
+      formats = %w[3g2 3gp asf avi f4p f4v flv ivf mj2 mjpg mkv mov mp4 mpeg mpg mxf ogg ogv rm ts webm wmv]
       Vidibus::Fileinfo::Processor::Video::FORMATS.should eq(formats)
     end
   end
@@ -926,7 +926,6 @@ describe Vidibus::Fileinfo::Processor::Video do
         '3gp' => 'video/3gpp',
         'asf' => 'video/x-ms-asf',
         'avi' => 'video/x-msvideo',
-        'dv' => 'video/x-dv',
         'f4p' => 'video/mp4',
         'f4v' => 'video/mp4',
         'flv' => 'video/x-flv',

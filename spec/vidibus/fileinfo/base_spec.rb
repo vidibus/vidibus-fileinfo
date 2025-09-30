@@ -29,7 +29,9 @@ describe Vidibus::Fileinfo::Base do
     end
 
     it "should pass if file is valid" do
-      subject.new(jpg_path).should be_true
+      expect {
+        subject.new(jpg_path)
+      }.not_to raise_error
     end
 
     it "should allow access to the processor's methods" do
